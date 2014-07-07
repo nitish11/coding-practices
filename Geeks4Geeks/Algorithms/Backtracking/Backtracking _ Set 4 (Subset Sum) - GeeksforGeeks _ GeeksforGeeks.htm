@@ -1,0 +1,1790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        <meta name="verify-v1" content="Qq4cneB3rmao09eEEtLOJX2rw+5ZMdf8/CiGxO9IulU=">
+        <meta name="y_key" content="79a87047956c2ff1">       
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="WordPress 3.5.1">
+
+        <title>Backtracking | Set 4 (Subset Sum) - GeeksforGeeks | GeeksforGeeks</title>
+   
+       <style type="text/css" media="screen">
+          @import url('http://www.geeksforgeeks.org/wp-content/themes/minimoo/style.css');
+    </style>
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.geeksforgeeks.org/feed/rss/">
+    <link rel="alternate" type="application/rss+xml" title="RSS 0.92" href="http://www.geeksforgeeks.org/feed/">
+    <link rel="alternate" type="application/rss+xml" title="Atom" href="http://www.geeksforgeeks.org/feed/atom/">
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0 comments feed" href="http://www.geeksforgeeks.org/comments/feed/">   
+    <link rel="pingback" href="http://www.geeksforgeeks.org/xmlrpc.php">
+    <link href="http://www.geeksforgeeks.org/wp-content/themes/minimoo/favicon.ico" rel="shortcut icon">      
+     <script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/all.js" id="facebook-jssdk"></script><script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/widgets.js" id="twitter-wjs"></script><script gapi_processed="true" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/plusone.js" async="" type="text/javascript"></script><script async="" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/cbgapi.loaded_0"></script><script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/ga.js" async="" type="text/javascript"></script><script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/mootools_core.js" type="text/javascript"></script>
+     <script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/mootools_more.js" type="text/javascript"></script>
+   
+    <script type="text/javascript">
+        //if (document.images) {
+        //    var preload_image = new Image(32,32);
+        //    preload_image.src = "http://www.geeksforgeeks.org/wp-content/themes/minimoo/js/ajax-loader.gif";
+        //}   
+       
+        var comments_per_page = 50;
+        var comment_order = 'desc';
+        var default_comments_page = 'newest';
+    </script>
+   
+     <script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/main.js" type="text/javascript"></script>
+   
+       
+    	 <!--[if lte IE 8]>
+<div id="fb-root" style="width: 90;"></div> 
+ 
+<!--<![endif]-->
+
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.7 - http://yoast.com/wordpress/seo/ -->
+<link rel="canonical" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backtracking | Set 4 (Subset Sum) - GeeksforGeeks">
+<meta property="og:url" content="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/">
+<meta property="og:site_name" content="GeeksforGeeks">
+<meta property="og:image" content="http://www.geeksforgeeks.org/wp-content/uploads/SubsetSum1.jpg">
+<!-- / Yoast WordPress SEO plugin. -->
+
+
+            <script type="text/javascript">//<![CDATA[
+            // Google Analytics for WordPress by Yoast v4.3.3 | http://yoast.com/wordpress/google-analytics/
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-12148232-1']);
+				            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+            //]]></script>
+			<link rel="alternate" type="application/rss+xml" title="GeeksforGeeks » Backtracking | Set 4 (Subset Sum) Comments Feed" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/feed/">
+<link rel="stylesheet" id="bbp-default-bbpress-css" href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/bbpress.css" type="text/css" media="screen">
+<link rel="stylesheet" id="jamie_social-css" href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/social.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-css" href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/pagenavi-css.css" type="text/css" media="all">
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/comment-reply.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/jquery.js"></script>
+<script type="text/javascript">try{jQuery.noConflict();}catch(e){};</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/all_002.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/googletracking.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/head_twitterlinkedin.js"></script><script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/widgets.js" async="" type="text/javascript"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/wp-quicklatex-frontend.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.geeksforgeeks.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.geeksforgeeks.org/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 3.5.1">
+<link rel="shortlink" href="http://www.geeksforgeeks.org/?p=14469">
+
+<!-- Bad Behavior 2.2.14 run time: 2.242 ms -->
+<script type="text/javascript">
+<!--
+function bb2_addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
+bb2_addLoadEvent(function() {
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1370428991 59.145.174.34';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+// --></script>
+		
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			
+						jQuery(document).ready( function() {
+
+				/* Use backticks instead of <code> for the Code button in the editor */
+				if ( typeof( edButtons ) !== 'undefined' ) {
+					edButtons[110] = new QTags.TagButton( 'code', 'code', '`', '`', 'c' );
+					QTags._buttonsInit();
+				}
+
+				/* Tab from topic title */
+				jQuery( '#bbp_topic_title' ).bind( 'keydown.editor-focus', function(e) {
+					if ( e.which !== 9 )
+						return;
+
+					if ( !e.ctrlKey && !e.altKey && !e.shiftKey ) {
+						if ( typeof( tinymce ) !== 'undefined' ) {
+							if ( ! tinymce.activeEditor.isHidden() ) {
+								var editor = tinymce.activeEditor.editorContainer;
+								jQuery( '#' + editor + ' td.mceToolbar > a' ).focus();
+							} else {
+								jQuery( 'textarea.bbp-the-content' ).focus();
+							}
+						} else {
+							jQuery( 'textarea.bbp-the-content' ).focus();
+						}
+
+						e.preventDefault();
+					}
+				});
+
+				/* Shift + tab from topic tags */
+				jQuery( '#bbp_topic_tags' ).bind( 'keydown.editor-focus', function(e) {
+					if ( e.which !== 9 )
+						return;
+
+					if ( e.shiftKey && !e.ctrlKey && !e.altKey ) {
+						if ( typeof( tinymce ) !== 'undefined' ) {
+							if ( ! tinymce.activeEditor.isHidden() ) {
+								var editor = tinymce.activeEditor.editorContainer;
+								jQuery( '#' + editor + ' td.mceToolbar > a' ).focus();
+							} else {
+								jQuery( 'textarea.bbp-the-content' ).focus();
+							}
+						} else {
+							jQuery( 'textarea.bbp-the-content' ).focus();
+						}
+
+						e.preventDefault();
+					}
+				});
+			});
+						/* ]]> */
+		</script>
+
+	<meta property="fb:app_id" content="308017392649785">
+<meta property="fb:admins" content="100002858089465,678632134">
+<style type="text/css">
+	div.wpld_pr {
+		font-size: 6pt;
+		color: #000000;
+		float: left;
+		height: 30px;
+		margin-right: 5px;
+	}
+	div.wpld_prg {
+		width: 40px;
+		border: 1px solid #999999;
+		height: 3px;
+		font-size: 1px;
+	}
+	div.wpld_prb {
+		background: #5eaa5e;
+		height: 3px;
+		font-size: 1px;
+	}
+	.wpld_panel {
+		padding:6px;
+		background:#ddd;
+		border:1px solid black;
+	}
+	/* All pages are, or will become, encloded in <span>s of this class */
+	.wpld_page{
+		/* background: #FDEEF4;
+		border: 1px dashed #505050;
+		font: 12px arial; */
+	}
+	/* The links including link title, description and pagerank icon */
+	.wpld_links{
+	}
+	.wpld_premium_links{
+		border: 1px dashed #000;
+		background-color:#FFFF99;
+		font: 14px arial;
+	}
+	/* The navbar which shows these links: Home | Add URL | Link To Us | Search */
+	.wpld_navbar {
+	}
+</style><link rel="stylesheet" type="text/css" href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/recaptcha.css">	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><style type="text/css" id="syntaxhighlighteranchor"></style>
+   
+<style type="text/css">.recaptchatable td img{display:block}.recaptchatable .recaptcha_r1_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') 0 -63px no-repeat;width:318px;height:9px}.recaptchatable .recaptcha_r2_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -18px 0 no-repeat;width:9px;height:57px}.recaptchatable .recaptcha_r2_c2{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -27px 0 no-repeat;width:9px;height:57px}.recaptchatable .recaptcha_r3_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') 0 0 no-repeat;width:9px;height:63px}.recaptchatable .recaptcha_r3_c2{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -18px -57px no-repeat;width:300px;height:6px}.recaptchatable .recaptcha_r3_c3{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -9px 0 no-repeat;width:9px;height:63px}.recaptchatable .recaptcha_r4_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -43px 0 no-repeat;width:171px;height:49px}.recaptchatable .recaptcha_r4_c2{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -36px 0 no-repeat;width:7px;height:57px}.recaptchatable .recaptcha_r4_c4{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -214px 0 no-repeat;width:97px;height:57px}.recaptchatable .recaptcha_r7_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -43px -49px no-repeat;width:171px;height:8px}.recaptchatable .recaptcha_r8_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -43px -49px no-repeat;width:25px;height:8px}.recaptchatable .recaptcha_image_cell center img{height:57px}.recaptchatable .recaptcha_image_cell center{height:57px}.recaptchatable .recaptcha_image_cell{background-color:white;height:57px}#recaptcha_area,#recaptcha_table{width:318px!important}.recaptchatable,#recaptcha_area tr,#recaptcha_area td,#recaptcha_area th{margin:0!important;border:0!important;padding:0!important;border-collapse:collapse!important;vertical-align:middle!important}.recaptchatable *{margin:0;padding:0;border:0;font-family:helvetica,sans-serif;font-size:8pt;color:black;position:static;top:auto;left:auto;right:auto;bottom:auto}.recaptchatable #recaptcha_image{margin:auto}.recaptchatable img{border:0!important;margin:0!important;padding:0!important}.recaptchatable a,.recaptchatable a:hover{cursor:pointer;outline:none;border:0!important;padding:0!important;text-decoration:none;color:blue;background:none!important;font-weight:normal}.recaptcha_input_area{position:relative!important;width:153px!important;height:45px!important;margin-left:7px!important;margin-right:7px!important;background:none!important}.recaptchatable label.recaptcha_input_area_text{margin:0!important;padding:0!important;position:static!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;background:none!important;height:auto!important;width:auto!important}.recaptcha_theme_red label.recaptcha_input_area_text,.recaptcha_theme_white label.recaptcha_input_area_text{color:black!important}.recaptcha_theme_blackglass label.recaptcha_input_area_text{color:white!important}.recaptchatable #recaptcha_response_field{width:153px!important;position:relative!important;bottom:7px!important;padding:0!important;margin:15px 0 0 0!important;font-size:10pt}.recaptcha_theme_blackglass #recaptcha_response_field,.recaptcha_theme_white #recaptcha_response_field{border:1px solid gray}.recaptcha_theme_red #recaptcha_response_field{border:1px solid #cca940}.recaptcha_audio_cant_hear_link{font-size:7pt;color:black}#recaptcha_instructions_error{color:red!important}.recaptcha_only_if_privacy{float:right;text-align:right}
+
+.recaptcha_is_showing_audio .recaptcha_only_if_image,.recaptcha_isnot_showing_audio .recaptcha_only_if_audio,.recaptcha_had_incorrect_sol .recaptcha_only_if_no_incorrect_sol,.recaptcha_nothad_incorrect_sol .recaptcha_only_if_incorrect_sol{display:none !important}</style><script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/nonSecureAnonymousFramework"></script><style type="text/css">* html #li_ui_li_gen_1370542678532_0 a#li_ui_li_gen_1370542678532_0-link{height:1% !important;}#li_ui_li_gen_1370542678532_0{position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1370542678532_0 a#li_ui_li_gen_1370542678532_0-link{border:0 !important;height:20px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1370542678532_0 a#li_ui_li_gen_1370542678532_0-link:link, #li_ui_li_gen_1370542678532_0 a#li_ui_li_gen_1370542678532_0-link:visited, #li_ui_li_gen_1370542678532_0 a#li_ui_li_gen_1370542678532_0-link:hover, #li_ui_li_gen_1370542678532_0 a#li_ui_li_gen_1370542678532_0-link:active{border:0 !important;text-decoration:none !important;}#li_ui_li_gen_1370542678532_0 a#li_ui_li_gen_1370542678532_0-link:after{content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-logo{background:url(http://static.licdn.com/scds/common/u/img/sprite/sprite_connect_v13.png) 0px -276px no-repeat !important;cursor:pointer !important;border:0 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:20px !important;height:20px !important;float:right !important;}#li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-logo{background-position:-20px -276px !important;}#li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-logo, #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-logo{background-position:-40px -276px !important;}.IN-shadowed #li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-logo{}#li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title{color:#333 !important;cursor:pointer !important;display:block !important;white-space:nowrap !important;float:left !important;margin-left:1px !important;vertical-align:top !important;overflow:hidden !important;text-align:center !important;height:18px !important;padding:0 4px 0 23px !important;border:1px solid #000 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;border-left-color:#E2E2E2 !important;border-left:0 !important;text-shadow:#FFFFFF -1px 1px 0 !important;line-height:20px !important;border-radius:0 !important;-moz-border-radius:0 !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-moz-border-radius-topright:2px !important;-moz-border-radius-bottomright:2px !important;background-color:#ECECEC !important;background-image:-moz-linear-gradient(top, #FEFEFE 0%, #ECECEC 100%) !important;}#li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-title{border:1px solid #000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;border-left:0 !important;background-color:#EDEDED !important;background-image:-moz-linear-gradient(top, #EDEDED 0%, #DEDEDE 100%) !important;}#li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title, #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title{color:#666 !important;border:1px solid #000 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;border-left:0 !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top, #E3E3E3 0%, #EDEDED 100%) !important;}.IN-shadowed #li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title{}.IN-shadowed #li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-title{}.IN-shadowed #li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title, .IN-shadowed #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title{}#li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title-text, #li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title-text *{color:#333 !important;font-size:11px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;font-style:normal !important;display:inline-block !important;background:transparent none !important;vertical-align:baseline !important;height:18px !important;line-height:20px !important;float:none !important;}#li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title-text strong{font-weight:bold !important;}#li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title-text em{font-style:italic !important;}#li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-title-text, #li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-title-text *{color:#000 !important;}#li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title-text, #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title-text, #li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title-text *, #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title-text *{color:#666 !important;}#li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title #li_ui_li_gen_1370542678532_0-mark{display:inline-block !important;width:0px !important;overflow:hidden !important;}.success #li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title{color:#333 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;border-left-color:#E2E2E2 !important;background-color:#ECECEC !important;background-image:-moz-linear-gradient(top, #FEFEFE 0%, #ECECEC 100%) !important;}.success #li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title-text, .success #li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title-text *{color:#333 !important;}.IN-shadowed .success #li_ui_li_gen_1370542678532_0 #li_ui_li_gen_1370542678532_0-title{}.success #li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-title{color:#000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;background-color:#EDEDED !important;background-image:-moz-linear-gradient(top, #EDEDED 0%, #DEDEDE 100%) !important;}.success #li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-title-text, .success #li_ui_li_gen_1370542678532_0.hovered #li_ui_li_gen_1370542678532_0-title-text *{color:#000 !important;}.success #li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title, .success #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title{color:#666 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top, #E3E3E3 0%, #EDEDED 100%) !important;}.success #li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title-text, .success #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title-text, .success #li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title-text *, .success #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title-text *{color:#666 !important;}.IN-shadowed .success #li_ui_li_gen_1370542678532_0.clicked #li_ui_li_gen_1370542678532_0-title, .IN-shadowed .success #li_ui_li_gen_1370542678532_0.down #li_ui_li_gen_1370542678532_0-title{}#li_ui_li_gen_1370542678557_1-container.IN-right {display:inline-block !important;float:left !important;overflow:visible !important;position:relative !important;height:18px !important;padding-left:2px !important;line-height:1px !important;cursor:pointer !important;}#li_ui_li_gen_1370542678557_1.IN-right {display:block !important;float:left !important;height:18px !important;margin-right:4px !important;padding-right:4px !important;background:url(http://static.licdn.com/scds/common/u/img/sprite/sprite_connect_v13.png) right -100px no-repeat !important;}#li_ui_li_gen_1370542678557_1-inner.IN-right {display:block !important;float:left !important;padding-left:8px !important;text-align:center !important;background:url(http://static.licdn.com/scds/common/u/img/sprite/sprite_connect_v13.png) 0px -60px no-repeat !important;}#li_ui_li_gen_1370542678557_1-content.IN-right {display:inline !important;font-size:11px !important;color:#04558B !important;font-weight:bold !important;font-family:Arial, sans-serif !important;line-height:18px !important;padding:0 5px 0 5px !important;}#li_ui_li_gen_1370542678557_1-container.IN-hovered #li_ui_li_gen_1370542678557_1.IN-right, #li_ui_li_gen_1370542678557_1-container.IN-clicked #li_ui_li_gen_1370542678557_1.IN-right, #li_ui_li_gen_1370542678557_1-container.IN-down #li_ui_li_gen_1370542678557_1.IN-right {background-position-y:-120px !important;}#li_ui_li_gen_1370542678557_1-container.IN-hovered #li_ui_li_gen_1370542678557_1-inner.IN-right, #li_ui_li_gen_1370542678557_1-container.IN-clicked #li_ui_li_gen_1370542678557_1-inner.IN-right, #li_ui_li_gen_1370542678557_1-container.IN-down #li_ui_li_gen_1370542678557_1-inner.IN-right {background-position-y:-80px !important;}#li_ui_li_gen_1370542678557_1-container.IN-empty {display:none !important;}#li_ui_li_gen_1370542678557_1-container.IN-hidden #li_ui_li_gen_1370542678557_1 {display:none !important;}</style><script src="http://www.linkedin.com/countserv/count/share?url=http%3A%2F%2Fwww.geeksforgeeks.org%2Fbackttracking-set-4-subset-sum%2F&amp;lang=en_US" type="text/javascript"></script></head>
+
+<body>
+<!-- o4dI0sCXUgoSONabbd8mbZ4SA3E -->    
+    <div id="wrapper">
+        <div class="blog-info">
+                <h1 class="blog-title">
+                <a href="http://www.geeksforgeeks.org/" title="GeeksforGeeks">GeeksforGeeks</a>
+            </h1>
+       
+            <div class="blog-description">
+                A computer science portal for geeks            </div>
+        </div>
+        <b><p> <br><br> <a rel="nofollow" href="http://www.geeksforgeeks.org/wp-login.php">Log in</a></p></b>  
+           <div class="clear"></div>         
+              
+                     
+            <div id="menu">   
+                 <ul>
+                   <li><a href="http://www.geeksforgeeks.org/">
+                              Home</a></li>
+                               <li><a href="http://www.geeksforgeeks.org/forums/">Q&amp;A</a></li>
+                               <li><a href="http://www.geeksforgeeks.org/about/interview-corner/">Interview Corner</a></li>
+                               <li><a href="http://www.geeksforgeeks.org/contribute/ask-a-question/">Ask a question</a></li>   
+            </ul>
+
+            <ul>
+                <li class="page_item page-item-9830"><a href="http://www.geeksforgeeks.org/contribute/">Contribute</a></li>
+<li class="page_item page-item-21638"><a href="http://www.geeksforgeeks.org/gate-corner/">GATE</a></li>
+<li class="page_item page-item-24811"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/">Algorithms</a></li>
+<li class="page_item page-item-24966"><a href="http://www.geeksforgeeks.org/c/">C</a></li>
+<li class="page_item page-item-25749"><a href="http://www.geeksforgeeks.org/c-plus-plus/">C++</a></li>
+<li class="page_item page-item-26089"><a href="http://www.geeksforgeeks.org/books/">Books</a></li>
+<li class="page_item page-item-2"><a href="http://www.geeksforgeeks.org/about/">About us</a></li>
+                             </ul> 
+                     
+            <div class="rssfeed">
+                <!--<a href="http://feeds.feedburner.com/limetouch" title="Subscribe to LimeTouch RSS Feed"><strong>Subscribe</strong></a>-->
+                <!--<<a href="http://feeds.feedburner.com/Geeksforgeeks" title="Subscribe to GeeksforGeeks RSS Feed"><strong>Subscribe</strong></a>-->            
+            </div>    
+               
+            <div class="clear"></div>     
+        </div>
+             <div id="navmenu">
+				<ul id="menu" style="padding:0; margin:0;">
+						<li class="cat-item cat-item-3"><a href="http://www.geeksforgeeks.org/category/c-arrays" title="Questions regarding Arrays">Arrays</a>
+</li>	
+
+	<li class="cat-item cat-item-17"><a href="http://www.geeksforgeeks.org/category/bit-magic" title="View all posts filed under Bit Magic">Bit Magic</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.geeksforgeeks.org/category/c-puzzles" title="View all posts filed under C/C++ Puzzles">C/C++ Puzzles</a>
+</li>
+
+<li class="cat-item cat-item-18"><a href="http://www.geeksforgeeks.org/category/articles" title="View all posts filed under Articles">Articles</a>
+</li>
+
+	<li class="cat-item cat-item-67"><a href="http://www.geeksforgeeks.org/category/gfact" title="View all posts filed under GFacts">GFacts</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.geeksforgeeks.org/category/linked-list" title="Linked List problems">Linked Lists</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="http://www.geeksforgeeks.org/category/multiple-choice-question" title="View all posts filed under MCQ">MCQ</a>
+
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.geeksforgeeks.org/category/c-programs" title="Miscellaneous">Misc</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.geeksforgeeks.org/category/program-output" title="View all posts filed under Output">Output</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.geeksforgeeks.org/category/c-strings" title="Questions related to strings">Strings</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.geeksforgeeks.org/category/tree" title="View all posts filed under Trees">Trees</a>
+</li>
+</ul>
+        </div>
+             <div id="content">	   	
+	
+	
+	<div class="post" id="post">
+	
+		
+			
+				
+			<div class="post-main" id="post-14469">
+		
+				<div class="post-info">			
+					<div class="post-title-info">
+						<h2 class="post-title">Backtracking | Set 4 (Subset Sum)</h2>
+					</div>
+					
+					<div class="post-date">September 24, 2011</div>
+					<div class="clear"></div>
+				</div>
+				  
+				<div class="post-content" id="post-content">
+					<p>Subset sum problem is to find subset of elements that are 
+selected from a given set&nbsp;whose sum adds up to a given number K. We
+ are considering the set contains non-negative values. It is assumed 
+that the input set is unique (no duplicates are presented).<span id="more-14469"></span></p>
+<p><strong>Exhaustive</strong><strong>&nbsp;Search Algorithm for Subset Sum</strong></p>
+<p>One way to find subsets that sum to K is to consider all possible subsets. A <a href="http://en.wikipedia.org/wiki/Power_set" target="_blank">power set</a> contains all those subsets generated from a given set. The size of such a power set is 2<sup>N</sup>.</p>
+<p><strong>Backtracking Algorithm for Subset Sum</strong></p>
+<p>Using exhaustive search we consider all subsets irrespective of 
+whether they satisfy given&nbsp;constraints&nbsp;or not. Backtracking 
+can be used to make a systematic consideration of the elements to be 
+selected.</p>
+<p>Assume given set of 4 elements, say <strong>w[1] …&nbsp;w[4]</strong>.
+ Tree diagrams can be used to design backtracking algorithms. The 
+following tree diagram&nbsp;depicts approach of generating variable 
+sized tuple.</p>
+<p><a href="http://www.geeksforgeeks.org/wp-content/uploads/SubsetSum1.jpg"><img class="aligncenter size-full wp-image-14482" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/SubsetSum1.jpg" alt="" height="360" width="530"></a></p>
+<p>In the above tree, a node represents function call and a branch 
+represents candidate element. The root node contains 4 children. 
+In&nbsp;other words, root considers every element of the set as 
+different branch. The next level&nbsp;sub-trees&nbsp;correspond&nbsp;to 
+the subsets that includes the parent node. The branches at each level 
+represent tuple element to be considered. For example, if we are at 
+level 1, tuple_vector[1] can take any value of four branches generated. 
+If we are at level 2 of left most node,&nbsp;tuple_vector[2] can take 
+any value of three branches generated, and so on…</p>
+<p>For example the left most child of root generates all those subsets 
+that include w[1]. Similarly the second child of root generates all 
+those subsets that includes w[2] and excludes w[1].</p>
+<p>As we go down along depth of tree we add elements so far, and if the 
+added sum is&nbsp;satisfying&nbsp;explicit constraints, we will continue
+ to generate child nodes further. Whenever the constraints are not met, 
+we stop further generation of sub-trees&nbsp;of that node, and backtrack
+ to previous node to explore the nodes not yet explored. In many 
+scenarios, it saves considerable&nbsp;amount&nbsp;of processing time.</p>
+<p>The tree should trigger a clue to implement the backtracking 
+algorithm (try yourself). It prints all those subsets whose sum add up 
+to given number.&nbsp;We need to explore the nodes along the breadth and
+ depth of the tree. Generating nodes along breadth is controlled by loop
+ and nodes along the depth are generated using recursion (post order 
+traversal). Pseudo code given below,</p>
+<pre>if(subset is satisfying the constraint)
+    print the subset
+    exclude the current element and consider next element
+else
+    generate the nodes of present level along breadth of tree and
+    recur for next levels</pre>
+<p>Following is C implementation of subset sum using variable size tuple
+ vector. Note that the following program explores all possibilities 
+similar to exhaustive search. It is to demonstrate how backtracking can 
+be used. See next code to verify, how we can optimize the backtracking 
+solution.</p>
+<pre class="brush: cpp; title: ; notranslate" title="">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define ARRAYSIZE(a) (sizeof(a))/(sizeof(a[0]))
+
+static int total_nodes;
+// prints subset found
+void printSubset(int A[], int size)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        printf("%*d", 5, A[i]);
+    }
+
+    printf("\n");
+}
+
+// inputs
+// s            - set vector
+// t            - tuplet vector
+// s_size       - set size
+// t_size       - tuplet size so far
+// sum          - sum so far
+// ite          - nodes count
+// target_sum   - sum to be found
+void subset_sum(int s[], int t[],
+                int s_size, int t_size,
+                int sum, int ite,
+                int const target_sum)
+{
+    total_nodes++;
+    if( target_sum == sum )
+    {
+        // We found subset
+        printSubset(t, t_size);
+        // Exclude previously added item and consider next candidate
+        subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);
+        return;
+    }
+    else
+    {
+        // generate nodes along the breadth
+        for( int i = ite; i &lt; s_size; i++ )
+        {
+            t[t_size] = s[i];
+            // consider next level node (along depth)
+            subset_sum(s, t, s_size, t_size + 1, sum + s[i], i + 1, target_sum);
+        }
+    }
+}
+
+// Wrapper to print subsets that sum to target_sum
+// input is weights vector and target_sum
+void generateSubsets(int s[], int size, int target_sum)
+{
+    int *tuplet_vector = (int *)malloc(size * sizeof(int));
+
+    subset_sum(s, tuplet_vector, size, 0, 0, 0, target_sum);
+
+    free(tuplet_vector);
+}
+
+int main()
+{
+    int weights[] = {10, 7, 5, 18, 12, 20, 15};
+    int size = ARRAYSIZE(weights);
+
+    generateSubsets(weights, size, 35);
+    printf("Nodes generated %d\n", total_nodes);
+    return 0;
+}
+</pre>
+<p>The power of backtracking appears when we combine explicit and 
+implicit constraints, and we stop generating nodes when these checks 
+fail. We can improve the above algorithm by strengthening the constraint
+ checks and presorting the data. By sorting the initial array, we need 
+not to consider rest of the array, once the sum so far is greater than 
+target number. We can backtrack and check other possibilities.</p>
+<p>Similarly, assume the array is presorted and we found one subset. We 
+can generate next node excluding the present node only when inclusion of
+ next node&nbsp;satisfies&nbsp;the constraints. Given below is optimized
+ implementation (it prunes the subtree if it is not satisfying 
+contraints).</p>
+<pre class="brush: cpp; title: ; notranslate" title="">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define ARRAYSIZE(a) (sizeof(a))/(sizeof(a[0]))
+
+static int total_nodes;
+
+// prints subset found
+void printSubset(int A[], int size)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        printf("%*d", 5, A[i]);
+    }
+
+    printf("\n");
+}
+
+// qsort compare function
+int comparator(const void *pLhs, const void *pRhs)
+{
+    int *lhs = (int *)pLhs;
+    int *rhs = (int *)pRhs;
+
+    return *lhs &gt; *rhs;
+}
+
+// inputs
+// s            - set vector
+// t            - tuplet vector
+// s_size       - set size
+// t_size       - tuplet size so far
+// sum          - sum so far
+// ite          - nodes count
+// target_sum   - sum to be found
+void subset_sum(int s[], int t[],
+                int s_size, int t_size,
+                int sum, int ite,
+                int const target_sum)
+{
+    total_nodes++;
+
+    if( target_sum == sum )
+    {
+        // We found sum
+        printSubset(t, t_size);
+
+        // constraint check
+        if( ite + 1 &lt; s_size &amp;&amp; sum - s[ite] + s[ite+1] &lt;= target_sum )
+        {
+            // Exclude previous added item and consider next candidate
+            subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);
+        }
+        return;
+    }
+    else
+    {
+        // constraint check
+        if( ite &lt; s_size &amp;&amp; sum + s[ite] &lt;= target_sum )
+        {
+            // generate nodes along the breadth
+            for( int i = ite; i &lt; s_size; i++ )
+            {
+                t[t_size] = s[i];
+
+                if( sum + s[i] &lt;= target_sum )
+                {
+                    // consider next level node (along depth)
+                    subset_sum(s, t, s_size, t_size + 1, sum + s[i], i + 1, target_sum);
+                }
+            }
+        }
+    }
+}
+
+// Wrapper that prints subsets that sum to target_sum
+void generateSubsets(int s[], int size, int target_sum)
+{
+    int *tuplet_vector = (int *)malloc(size * sizeof(int));
+
+    int total = 0;
+
+    // sort the set
+    qsort(s, size, sizeof(int), &amp;comparator);
+
+    for( int i = 0; i &lt; size; i++ )
+    {
+        total += s[i];
+    }
+
+    if( s[0] &lt;= target_sum &amp;&amp; total &gt;= target_sum )
+    {
+
+        subset_sum(s, tuplet_vector, size, 0, 0, 0, target_sum);
+
+    }
+
+    free(tuplet_vector);
+}
+
+int main()
+{
+    int weights[] = {15, 22, 14, 26, 32, 9, 16, 8};
+    int target = 53;
+
+    int size = ARRAYSIZE(weights);
+
+    generateSubsets(weights, size, target);
+
+    printf("Nodes generated %d\n", total_nodes);
+
+    return 0;
+}
+</pre>
+<p>As another approach, we can generate the tree in fixed size 
+tuple&nbsp;analogs&nbsp;to binary pattern. We will kill 
+the&nbsp;sub-trees&nbsp;when the constraints are not satisfied.</p>
+<p>- – – <strong><a href="http://www.linkedin.com/in/ramanawithu" target="_blank">Venki</a></strong>. Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above.</p>
+		
+ <span class="martiniboy_social_list">
+<ul class="jamie_social martinileft">
+  <li class="martinifb"><fb:like send="false" layout="button_count" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/" show_faces="false" width="90"></fb:like>   </li>
+
+
+    <!--[if !lte IE 7]><!-->
+  <li>
+    <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/fastbutton.htm" name="I0_1370542450629" id="I0_1370542450629" vspace="0" tabindex="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+  </li>
+  <!--<![endif]-->
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/" data-text="Backtracking | Set 4 (Subset Sum)">Tweet</a></li>
+    <li><span class="IN-widget" style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center;"><span style="padding: 0px ! important; margin: 0px ! important; text-indent: 0px ! important; display: inline-block ! important; vertical-align: baseline ! important; font-size: 1px ! important;"><span id="li_ui_li_gen_1370542678532_0"><a id="li_ui_li_gen_1370542678532_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1370542678532_0-logo">in</span><span id="li_ui_li_gen_1370542678532_0-title"><span id="li_ui_li_gen_1370542678532_0-mark"></span><span id="li_ui_li_gen_1370542678532_0-title-text">Share</span></span></a></span></span><span style="padding: 0px ! important; margin: 0px ! important; text-indent: 0px ! important; display: inline-block ! important; vertical-align: baseline ! important; font-size: 1px ! important;"><span id="li_ui_li_gen_1370542678557_1-container" class="IN-right IN-hidden"><span id="li_ui_li_gen_1370542678557_1" class="IN-right"><span id="li_ui_li_gen_1370542678557_1-inner" class="IN-right"><span id="li_ui_li_gen_1370542678557_1-content" class="IN-right">0</span></span></span></span></span></span><script type="in/share+init" data-url="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/" data-counter="right" data-onsuccess="LinkedInShare"></script></li>
+  </ul>
+<br class="jamie_clear">
+</span>
+ 
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9465609616171866";
+/* Big Rectangle Blog Bottom */
+google_ad_slot = "4061219431";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px"><ins id="aswift_0_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="280" scrolling="no" width="336"></iframe></ins></ins>     			
+
+<div class="yarpp-related">
+<b>You may also like following posts</b><ol>
+<li><a href="http://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/" rel="bookmark" title="Find whether an array is subset of another array | Added Method 3">Find whether an array is subset of another array | Added Method 3</a></li>
+<li><a href="http://www.geeksforgeeks.org/backttracking-set-2-rat-in-a-maze/" rel="bookmark" title="Backtracking | Set 2 (Rat in a Maze)">Backtracking | Set 2 (Rat in a Maze)</a></li>
+</ol>
+</div>
+				</div>		  
+
+<!-- Facebook Comments for WordPress: http://3doordigital.com/wordpress/plugins/facebook-comments/ --><h3>Facebook Comments</h3><p><fb:comments-count href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/"></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/" data-num-posts="5" data-width="450" data-colorscheme="light"></div>	
+				  <!--
+				  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/"
+    dc:identifier="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/"
+    dc:title="Backtracking | Set 4 (Subset Sum)"
+    trackback:ping="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/trackback/" />
+</rdf:RDF>				  -->           
+
+			</div> <!-- end post main -->
+					
+			<div class="post-meta">
+				<div class="left"></div>				
+				<div class="clear"></div>
+			</div>				
+
+					
+			
+        
+			 
+
+			<div class="comments-main">			                     
+					  <div class="comments" id="commentsdiv">
+	  	<div id="commentsholder">
+		                          
+			<div class="list" id="comments">
+				<h3 id="commentCount">24 comments so far</h3>
+  
+				<ol class="commentlist" id="commentlist">                            
+							<li class="comment byuser comment-author-abhishek08aug even thread-even depth-1" id="comment-19220">
+				<div id="div-comment-19220" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">abhishek08aug</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-19220">
+			June 5, 2013 at 2:56 PM</a>		</div>
+
+		<p>Intelligent <img src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/icon_biggrin.gif" alt=":D" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=19220#respond" onclick='return addComment.moveForm("div-comment-19220", "19220", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-rahul23 odd alt thread-odd thread-alt depth-1" id="comment-18853">
+				<div id="div-comment-18853" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">rahul23</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-18853">
+			May 30, 2013 at 12:35 AM</a>		</div>
+
+		<p>@venki--<br>
+Firstly  following isnt not needed i think..And it can be modified to 
+handle duplicates if we need this...say 2,4,4 and we need to find 6...2 4
+ matched..now ite is at 3rd element i.e 4..wta we so....we do 
+sum-s[ite-1],i.e exclude previous and + s[ite]..add next..agin we get 
+2,4.....correct me if wrng...<br>
+ // it would not be needed in case unique elements....<br>
+        if( ite + 1 &lt; s_size &amp;&amp; sum - s[ite] + s[ite+1] &lt;= target_sum )<br>
+        {<br>
+            // Exclude previous added item and consider next candidate<br>
+            subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);<br>
+        }<br>
+        return;<br>
+    }</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=18853#respond" onclick='return addComment.moveForm("div-comment-18853", "18853", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-14354">
+				<div id="div-comment-14354" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">bugfinder</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-14354">
+			January 10, 2013 at 7:13 AM</a>		</div>
+
+		<p>isnt this code finding repeated same subsets which satisfies the constraint.</p>
+<p>for example : </p>
+<p>consider the tree : ..</p>
+<p>       1<br>
+     /   \<br>
+     2<br>
+   / \<br>
+   6  7</p>
+<p>suppose 6 leads to a subset ... Then </p>
+<p>if( target_sum == sum )<br>
+    {<br>
+        // We found sum<br>
+        printSubset(t, t_size);</p>
+<p>        // constraint check<br>
+        if( ite + 1 &lt; s_size &amp;&amp; sum - s[ite] + s[ite+1] &lt;= target_sum )<br>
+        {<br>
+            // Exclude previous added item and consider next candidate<br>
+            subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);<br>
+        }<br>
+        return;<br>
+    }<br>
+[\code]</p>
+<p>so node 7 will be invoked ..</p>
+<p>now when this ends ...<br>
+asuming no more alternatives to try we return to the original for loop where 7 will be called again ...<br>
+Do we require memoization here of solution to check already traversed paths are not traversed again.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=14354#respond" onclick='return addComment.moveForm("div-comment-14354", "14354", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-14101">
+				<div id="div-comment-14101" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Balaji</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-14101">
+			December 30, 2012 at 1:53 PM</a>		</div>
+
+		<p>Thanks for explaining how to accomplish this through backtracking. 
+Just to be more clear and to verify my belief - i'm thinking we can 
+model this problem as the coin change problem which essentially asks in 
+how many ways can you make change to a given sum 'N' using 'm' coins 
+S1&lt;S2&lt;..&lt;Sm, the solution to which is simply the recurrence 
+C(N,m) = C(N,m - 1) + C(N - Sm,m)</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=14101#respond" onclick='return addComment.moveForm("div-comment-14101", "14101", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-12091">
+				<div id="div-comment-12091" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">kalyan</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-12091">
+			October 27, 2012 at 9:50 PM</a>		</div>
+
+		<p>if( ite + 1 &lt; s_size &amp;&amp; sum - s[ite] + s[ite+1] &lt;= target_sum )<br>
+        {<br>
+            // Exclude previous added item and consider next candidate<br>
+            subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);<br>
+        }</p>
+<p>i think this condition is redundant ?can some one tell me why is it 
+required ...i ran it without that condition its running fine ..</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=12091#respond" onclick='return addComment.moveForm("div-comment-12091", "12091", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-11838">
+				<div id="div-comment-11838" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Anil</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-11838">
+			October 18, 2012 at 3:08 AM</a>		</div>
+
+		<pre class="brush: cpp; title: ; notranslate" title="">
+I feel below check is redundant and not required. Could u please explain the necessity of this.
+
+My point is 
+
+if we got subset whose sum is equal to target sum, then there is no question of being checking to next candidate because its very obvious that the sum would be greater than target sum.
+
+        if(ite + 1 &lt; s_size &amp;&amp; sum - s[ite] + s[ite+1] &lt;= target_sum)
+        {
+            subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);
+        } 
+
+
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=11838#respond" onclick='return addComment.moveForm("div-comment-11838", "11838", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2 parent" id="comment-11839">
+				<div id="div-comment-11839" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Anil</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-11839">
+			October 18, 2012 at 3:11 AM</a>		</div>
+
+		<p>I am talking about optimized version.</p>
+<p>Also in unoptimized version the return statement is<br>
+redundant.</p>
+<p>  if( target_sum == sum )<br>
+    {<br>
+        // We found subset<br>
+        printSubset(t, t_size);<br>
+        // Exclude previously added item and consider next candidate<br>
+        subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);<br>
+        return; // AKT the return is not required redundant code<br>
+    }</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=11839#respond" onclick='return addComment.moveForm("div-comment-11839", "11839", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-3" id="comment-12081">
+				<div id="div-comment-12081" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">dreamer</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-12081">
+			October 27, 2012 at 3:24 AM</a>		</div>
+
+		<p>exactly my point.. this statement is not required.. the exclusion 
+statement... it doesnt make any difference .. plus we should exclude 
+"s[ite-1]" here.. coz it is the previously added item.. wasted hours 
+figuring out why we are excluding s[ite] when we haven't included it yet</p>
+<pre class="brush: cpp; title: ; notranslate" title="">/* Paste your code here (You may delete these lines if not writing code) */
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=12081#respond" onclick='return addComment.moveForm("div-comment-12081", "12081", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+</ul>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-9956">
+				<div id="div-comment-9956" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Mayautobot</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-9956">
+			August 2, 2012 at 7:05 PM</a>		</div>
+
+		<pre class="brush: cpp; title: ; notranslate" title="">//this program prints all subsets in the array that sum to the given sum
+
+#include&lt;iostream&gt;
+
+using namespace std;
+
+void Tour(int arr[],int size,int reSum)
+{
+	int *stack=new int[size];
+	int sp=-1;
+	int sum=0;
+	int arrp;
+	
+	for(int i=0;i&lt;size;i++)
+	{
+		sp=-1;
+		stack[++sp]=i;
+		sum+=arr[stack[sp]];
+		arrp=i+1;
+		while(sp!=-1)
+		{
+			if(sum==reSum)
+			{
+				for(int j=0;j&lt;=sp;j++)
+				{
+					cout&lt;&lt;" "&lt;&lt;arr[stack[j]];
+				}
+				cout&lt;&lt;endl;
+				arrp=stack[sp--];
+				sum-=arr[arrp];
+				arrp++;
+			}
+			else if(sum&gt;reSum)
+			{
+				sum-=arr[stack[sp]];
+				arrp=stack[sp--];
+				arrp++;
+			}
+			else if(sum&lt;reSum)
+			{
+				if(arrp&lt;size)
+				{
+					sum+=arr[arrp];
+					stack[++sp]=arrp;
+					arrp++;
+				}
+				else
+				{
+					arrp=stack[sp--];
+					sum-=arr[arrp];
+					arrp++;
+				}
+			}
+		}
+	}
+}
+
+int main()
+{
+	int arr[]={10,7,5,18,12,20,15};
+	int size=7;
+	Tour(arr,size,35);
+	return 0;
+}
+
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=9956#respond" onclick='return addComment.moveForm("div-comment-9956", "9956", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-8997">
+				<div id="div-comment-8997" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">spark9</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-8997">
+			June 11, 2012 at 12:40 PM</a>		</div>
+
+		<p>your code will not work properly when the set will contain 0.<br>
+like<br>
+[1,2,0] target sum = 3.</p>
+<pre class="brush: cpp; title: ; notranslate" title="">/* Paste your code here (You may delete these lines if not writing code) */
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=8997#respond" onclick='return addComment.moveForm("div-comment-8997", "8997", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2 parent" id="comment-9000">
+				<div id="div-comment-9000" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">kartik</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-9000">
+			June 11, 2012 at 2:05 PM</a>		</div>
+
+		<p>@spark9: I tried the code for your input. It seems to be working. It produced two subsets as output:</p>
+<p>1 2 0<br>
+1 2</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=9000#respond" onclick='return addComment.moveForm("div-comment-9000", "9000", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-3" id="comment-9003">
+				<div id="div-comment-9003" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">spark9</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-9003">
+			June 11, 2012 at 7:43 PM</a>		</div>
+
+		<p>Did you try with the first version of the code  (the one without sorting) ?</p>
+<pre class="brush: cpp; title: ; notranslate" title="">/* Paste your code here (You may delete these lines if not writing code) */
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=9003#respond" onclick='return addComment.moveForm("div-comment-9003", "9003", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+</ul>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-8360">
+				<div id="div-comment-8360" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">sachin</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-8360">
+			May 10, 2012 at 9:41 PM</a>		</div>
+
+		<p>in the first code,<br>
+what if sum becomes greater than the target sum,then in that case also,it should exclude current element and consider next?</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=8360#respond" onclick='return addComment.moveForm("div-comment-8360", "8360", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-venki bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-7105">
+				<div id="div-comment-7105" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://geeksforgeeks.org/?page_id=2" rel="external nofollow" class="url">Venki</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-7105">
+			January 16, 2012 at 12:06 PM</a>		</div>
+
+		<p>@Arvind, thanks for pointing this. You have provided a set with duplicated entries. It was assumed that the elements are unique.</p>
+<p>With the duplicated entries, during branch generation upon step back 
+by excluding the current element it is assumed that the current element 
+is excluded to consider next elements. In case of duplicate elements it 
+is not true.</p>
+<p>I have updated the problem description.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=7105#respond" onclick='return addComment.moveForm("div-comment-7105", "7105", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1 parent" id="comment-6431">
+				<div id="div-comment-6431" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Arvind</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-6431">
+			November 11, 2011 at 1:21 PM</a>		</div>
+
+		<p>The code doesn;t work Example:</p>
+<p>For<br>
+int weights[] = {10, 7, 5, 18, 12, 12, 15};</p>
+<p>Output<br>
+   18    7   10<br>
+   18    7   12<br>
+   18    5   12<br>
+   18    5   12<br>
+Nodes generated 55</p>
+<p>Which is not right</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=6431#respond" onclick='return addComment.moveForm("div-comment-6431", "6431", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-2" id="comment-6432">
+				<div id="div-comment-6432" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Arvind</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-6432">
+			November 11, 2011 at 1:26 PM</a>		</div>
+
+		<pre class="brush: cpp; title: ; notranslate" title="">    if( target_sum == sum )
+    {
+        // We found sum
+        printSubset(t, t_size);
+ 
+        // constraint check
+        if( ite + 1 &lt; s_size &amp;&amp; sum - s[ite] + s[ite+1] &lt;= target_sum )
+        {
+            // Exclude previous added item and consider next candidate
+            subset_sum(s, t, s_size, t_size-1, sum - s[ite], ite + 1, target_sum);
+        }
+        return;
+    }
+This is not right. why do we do  Exclude previous added item and consider next candidate - not making sense.
+
+Output for {10, 7, 5, 18, 12, 12, 15};
+   10    7   18 (sum = 35)
+   10    7   12 (sum = 29)
+    5   18   12 (sum = 35)
+    5   18   12 
+Nodes generated 124
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=6432#respond" onclick='return addComment.moveForm("div-comment-6432", "6432", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-6430">
+				<div id="div-comment-6430" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Arvind</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-6430">
+			November 11, 2011 at 1:19 PM</a>		</div>
+
+		<p>The code doesn't work</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=6430#respond" onclick='return addComment.moveForm("div-comment-6430", "6430", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-5824">
+				<div id="div-comment-5824" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">kamlesh</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-5824">
+			October 19, 2011 at 7:08 PM</a>		</div>
+
+		<p>what is the time complexity of Backtracking Algorithm for Subset Sum</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=5824#respond" onclick='return addComment.moveForm("div-comment-5824", "5824", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-5721">
+				<div id="div-comment-5721" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://effprog.blogspot.com/" rel="external nofollow" class="url">Sambasiva</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-5721">
+			October 12, 2011 at 9:05 PM</a>		</div>
+
+		<p>http://effprog.blogspot.com/2011/10/to-print-all-subsets-of-set-whose-sum.html</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=5721#respond" onclick='return addComment.moveForm("div-comment-5721", "5721", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-venki bypostauthor odd alt depth-2 parent" id="comment-5722">
+				<div id="div-comment-5722" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://geeksforgeeks.org/?page_id=2" rel="external nofollow" class="url">Venki</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-5722">
+			October 12, 2011 at 9:19 PM</a>		</div>
+
+		<p>@Sambasiva, thanks for the comment. We are missing your comments on GFG <img src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/icon_smile.gif" alt=":)" class="wp-smiley"> . Welcome back.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=5722#respond" onclick='return addComment.moveForm("div-comment-5722", "5722", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-sambasiva even depth-3" id="comment-5793">
+				<div id="div-comment-5793" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://effprog.blogspot.com/" rel="external nofollow" class="url">Sambasiva</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-5793">
+			October 17, 2011 at 9:07 PM</a>		</div>
+
+		<p>Hi Venki,</p>
+<p>         Thank you. Really nice posts.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=5793#respond" onclick='return addComment.moveForm("div-comment-5793", "5793", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+</ul>
+</li>
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-5475">
+				<div id="div-comment-5475" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">rahul</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-5475">
+			September 26, 2011 at 1:09 AM</a>		</div>
+
+		<p>@Venki isn't the complexity exponential  can u write exact complexity , also</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=5475#respond" onclick='return addComment.moveForm("div-comment-5475", "5475", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-kartik even depth-2" id="comment-5481">
+				<div id="div-comment-5481" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">kartik</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-5481">
+			September 26, 2011 at 9:41 AM</a>		</div>
+
+		<p>@rahul: Time complexity is exponential in worst case.  Same is the 
+case with all other Backtracking algos like Rat in a Mzae, Knight Tour, N
+ Queen.. etc</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=5481#respond" onclick='return addComment.moveForm("div-comment-5481", "5481", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-venki bypostauthor odd alt depth-2" id="comment-5488">
+				<div id="div-comment-5488" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://geeksforgeeks.org/?page_id=2" rel="external nofollow" class="url">Venki</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-5488">
+			September 26, 2011 at 8:47 PM</a>		</div>
+
+		<p>@rahul, I hope Karthik clarified your query.</p>
+<p>Adding further, backtracking explores all solution vectors in a 
+systematic manner. It will stop generating subtrees (pruning) when 
+implicit constraints are not satisfied. So that significant amount of 
+time will be saved. However, in the worst case we need to explore all 
+possibilities. Try to generate the worst case test data for above subset
+ sum problem <img src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/icon_smile.gif" alt=":)" class="wp-smiley">  .</p>
+<p>Where as in brute force search, we will check each and every option. 
+To understand the fact, try the above two algorithms with the following 
+input</p>
+<pre class="brush: cpp; title: ; notranslate" title="">    int weights[] = {2, 7, 5, 1, 3};
+    int target = 7;</pre>
+<p>There are two solutions for the above problem. Set {2, 7} and set 
+{7}. The first program generates 28 nodes (including unnecessary leaf 
+node calls) and second program generates 12 nodes.</p>
+<p>Usually the complexity of backtracking problems will be O(P(n) * n!) 
+or O(P(n) * 2^n) where P(n) is polynomial in 'n' that depends on the way
+ nodes are generated.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/?replytocom=5488#respond" onclick='return addComment.moveForm("div-comment-5488", "5488", "respond", "14469")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+				</ol>						
+				
+				<span class="left"></span>
+				<span class="right"></span>
+				<div class="clear"></div>
+			</div>
+				</div>
+		
+				
+		<div class="form" id="respond">
+
+			<h3 class="respond">Comment</h3>
+			<div id="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#respond" style="display:none;">Click here to cancel reply.</a></div>
+
+			
+		    <form action="http://www.geeksforgeeks.org/wp-comments-post.php" method="post" id="commentform">
+				
+									
+					<div>
+						<label for="author">Name (<em>Required</em>)</label>	
+						<input name="author" id="author" tabindex="1" type="text">			
+				
+						<label for="email">Email (<em>Required</em>)</label> 
+						<input name="email" id="email" tabindex="2" type="text">
+	
+						<label for="url">Website URI</label>
+						<input name="url" id="url" tabindex="3" type="text">
+		<label for="comment"> <b>Your Comment (Writing code? please paste your code between sourcecode tags)</b></label>
+						<textarea id="comment" name="comment" tabindex="4" rows="10" cols="50">
+
+
+[sourcecode language="C"]
+/* Paste your code here (You may delete these lines if not writing code) */
+[/sourcecode]</textarea>
+					</div>
+
+				
+				<div class="clear"></div>
+
+			<!-- BEGIN: subscribe to comments reloaded --><p><label for="subscribe-reloaded"><input style="width:30px" name="subscribe-reloaded" id="subscribe-reloaded" value="yes" checked="checked" type="checkbox"> Notify me of followup comments via e-mail. You can also <a href="http://www.geeksforgeeks.org/comment-subscriptions?srp=14469&amp;sra=s">subscribe</a> without commenting.</label></p><!-- END: subscribe to comments reloaded -->				<div class="submit">
+					<div></div>
+					<div><input name="comment_post_ID" value="14469" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</div>
+				</div>
+
+				<div class="ajax">
+					<div id="postStatus"></div>				
+					<div id="commentStatus"></div>				
+				<!--<div><input type="hidden" name="comment_post_ID" value="" /></div>-->
+				</div>
+
+				<div class="clear"></div>
+				<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="9562c202a3" type="hidden"></p>                <script type="text/javascript">
+                    var RecaptchaOptions = { theme : 'red', lang : 'en' , tabindex : 5 };
+                </script><script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/challenge"></script><script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/recaptcha_1-4b27fabf_9cc6f81f_8eda0965_32d566a6_105bdf84.js"></script><div class=" recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio" id="recaptcha_widget_div" style=""></div><script>Recaptcha.widget = Recaptcha.$("recaptcha_widget_div"); Recaptcha.challenge_callback();</script>
+
+	<noscript>
+  		<iframe src="http://www.google.com/recaptcha/api/noscript?k=6Ld-1LoSAAAAANFVCVn56wWBdJTPsADwnMKI6rMi" height="300" width="500" frameborder="0"></iframe><br/>
+  		<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+  		<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+	</noscript>                        <div id="recaptcha-submit-btn-area">&nbsp;<input name="submit" id="submit" tabindex="6" value="Have Your Say" type="submit"></div>
+                        <noscript>
+                         <style type='text/css'>#submit {display:none;}</style>
+                         <input name="submit" type="submit" id="submit-alt" tabindex="6" value="Submit Comment"/> 
+                        </noscript>
+			</form>
+
+		</div> <!-- end form -->
+		
+				    	  </div> <!-- end comments -->			</div>
+	
+					
+			
+			
+
+		</div> <!-- end post -->	
+
+<br><br>
+	
+				
+
+</div> <!-- end content -->
+
+<ul id="sidebar">
+	<li id="text-19" class="widget widget_text">			<div class="textwidget"><div id="cse" style="width: 100%;">Loading</div>
+<script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+  google.load('search', '1', {language : 'en', style : google.loader.themes.GREENSKY});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('010463773075615557214:qy5dkn-osd8');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+</script><script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/a" type="text/javascript"></script><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/defaulten.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/greensky.css" type="text/css" rel="stylesheet"><script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/defaulten.js" type="text/javascript"></script>
+
+<style type="text/css">
+  .gsc-control-cse {
+    font-family: "Trebuchet MS", sans-serif;
+    border-color: #E1F3DA;
+    background-color: #E1F3DA;
+  }
+  input.gsc-input {
+    border-color: #94CC7A;
+  }
+  input.gsc-search-button {
+    border-color: #94CC7A;
+    background-color: #AADA92;
+  }
+  .gsc-tabHeader.gsc-tabhInactive {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gsc-tabHeader.gsc-tabhActive {
+    border-color: #A9DA92;
+    background-color: #A9DA92;
+  }
+  .gsc-tabsArea {
+    border-color: #A9DA92;
+  }
+  .gsc-webResult.gsc-result {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gsc-webResult.gsc-result:hover {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gs-webResult.gs-result a.gs-title:link,
+  .gs-webResult.gs-result a.gs-title:link b {
+    color: #009900;
+  }
+  .gs-webResult.gs-result a.gs-title:visited,
+  .gs-webResult.gs-result a.gs-title:visited b {
+    color: #009900;
+  }
+  .gs-webResult.gs-result a.gs-title:hover,
+  .gs-webResult.gs-result a.gs-title:hover b {
+    color: #003300;
+  }
+  .gs-webResult.gs-result a.gs-title:active,
+  .gs-webResult.gs-result a.gs-title:active b {
+    color: #009900;
+  }
+  .gsc-cursor-page {
+    color: #009900;
+  }
+  a.gsc-trailing-more-results:link {
+    color: #009900;
+  }
+  .gs-webResult.gs-result .gs-snippet {
+    color: #454545;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl {
+    color: #33cc00;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl-short {
+    color: #33cc00;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl-short {
+    display: none;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl-long {
+    display: block;
+  }
+  .gsc-cursor-box {
+    border-color: #A9DA92;
+  }
+  .gsc-results .gsc-cursor-page {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+    border-color: #A9DA92;
+    background-color: #A9DA92;
+  }
+  .gs-promotion.gs-result {
+    border-color: #94CC7A;
+    background-color: #CBE8B4;
+  }
+  .gs-promotion.gs-result a.gs-title:link {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result a.gs-title:visited {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result a.gs-title:hover {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result a.gs-title:active {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result .gs-snippet {
+    color: #454545;
+  }
+  .gs-promotion.gs-result .gs-visibleUrl,
+  .gs-promotion.gs-result .gs-visibleUrl-short {
+    color: #815FA7;
+  }
+</style>    
+
+</div>
+		</li>
+<li id="text-13" class="widget widget_text">			<div class="textwidget"><ul>
+<li><a href="http://www.geeksforgeeks.org/tag/interview-experience">Interview Experiences</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/advance-data-structures">Advanced Data Structures</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/dynamic-programming">Dynamic Programming</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/Greedy-Algorithm/">Greedy Algorithms</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/backtracking">Backtracking</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/pattern-searching">Pattern Searching</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/divide-and-conquer">Divide &amp; Conquer</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/graph">Graph</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/MathematicalAlgo">Mathematical Algorithms</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/recursion">Recursion</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/Java">Java</a></li>
+</ul>
+</div>
+		</li>
+<li id="text-9" class="widget widget_text">			<div class="textwidget"><iframe src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/likebox.htm" style="border:none; overflow:hidden; width:240px; height:200px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe></div>
+		</li>
+<li id="text-18" class="widget widget_text">			<div class="textwidget"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-9465609616171866";
+/* Mediam Rectange */
+google_ad_slot = "7922198189";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins></div>
+		</li>
+<li id="text-14" class="widget widget_text"><h2 class="widgettitle">Popular Posts</h2>
+			<div class="textwidget"><ul>
+<li><a href="http://www.geeksforgeeks.org/archives/767">  All permutations of a given string </a></li>
+<li><a href="http://www.geeksforgeeks.org/archives/14268"> Memory Layout of C Programs</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/840"> Understanding “extern” keyword in C</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/2105">Median of two sorted arrays</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/6358"> Tree traversal without recursion and without stack! </a></li>
+<li><a href="http://www.geeksforgeeks.org/archives/9705"> Structure Member Alignment, Padding and Data Packing</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/2405"> Intersection point of two Linked Lists</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/1029"> Lowest Common Ancestor in a BST.</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/3042"> Check if a binary tree is BST or not</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/17063"> Sorted Linked List to Balanced BST</a></li>
+</ul></div>
+		</li>
+<li id="text-17" class="widget widget_text">			<div class="textwidget"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-9465609616171866";
+/* Wide Skyscrapper Sidebar */
+google_ad_slot = "8695472116";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="600" scrolling="no" width="160"></iframe></ins></ins></div>
+		</li>
+<li id="text-3" class="widget widget_text">			<div class="textwidget"><!-- TWITTER BUTTON-->
+<a href="http://twitter.com/Geeksforgeeks" class="twitter-follow-button">Follow </a>
+<script src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/widgets.js" type="text/javascript"></script>
+
+         <!-- Place this tag in your head or just before your close body tag -->
+         <script gapi_processed="true" type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/plusone.js"></script>
+         <!-- Place this tag where you want the +1 button to render -->
+         <div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 106px; height: 24px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/fastbutton_002.htm" name="I0_1370542451514" id="I0_1370542451514" vspace="0" tabindex="0" style="position: static; top: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+
+<!-- GOOGLE FEEDBURNER BUTTON-->
+<a href="http://feeds.feedburner.com/Geeksforgeeks" title="Subscribe to my feed" rel="alternate" type="application/rss+xml"><img src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/feed-icon32x32.png" alt="" style="border:0"></a><a href="http://feeds.feedburner.com/Geeksforgeeks" title="Subscribe to my feed" rel="alternate" type="application/rss+xml">Subscribe</a>
+
+</div>
+		</li>
+<li id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widgettitle">Recent Comments</h2>
+<ul id="recentcomments"><li class="recentcomments">rakshify on <a href="http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/#comment-19225">Searching for Patterns | Set 2 (KMP Algorithm)</a></li><li class="recentcomments">rakshify on <a href="http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/#comment-19224">Searching for Patterns | Set 2 (KMP Algorithm)</a></li><li class="recentcomments">uva on <a href="http://www.geeksforgeeks.org/construct-binary-tree-from-inorder-traversal/#comment-19223">Construct Special Binary Tree from given Inorder traversal</a></li><li class="recentcomments">ultimate_coder on <a href="http://www.geeksforgeeks.org/alternating-split-of-a-given-singly-linked-list/#comment-19222">Alternating split of a given Singly Linked List</a></li><li class="recentcomments">Niks on <a href="http://www.geeksforgeeks.org/ood-principles-solid/#comment-19221">OOD Principles | SOLID</a></li><li class="recentcomments">abhishek08aug on <a href="http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/#comment-19220">Backtracking | Set 4 (Subset Sum)</a></li><li class="recentcomments">Rachit on <a href="http://www.geeksforgeeks.org/understanding-volatile-qualifier-in-c/#comment-19219">Understanding “volatile” qualifier in C</a></li><li class="recentcomments">ultimate_coder on <a href="http://www.geeksforgeeks.org/what-are-static-functions-in-c/#comment-19218">Static functions in C</a></li></ul></li>
+
+</ul>	
+				  
+		<div class="clear"></div>
+
+		<div id="footer">
+		
+		    <div class="xhtml">
+                        @geeksforgeeks, <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/in/deed.en_US" title="Valid XHTML Strict 1.0">Some rights reserved</a>  <a href="http://www.geeksforgeeks.org/about/contact-us/"> &nbsp; &nbsp; &nbsp; &nbsp;Contact Us</a>
+
+		    </div>
+		    
+		    <div class="credits">
+			  Powered by <a href="http://wordpress.org/">WordPress </a> &amp; <a href="http://mootools.net/" title="Mootools JavaScript Framework">MooTools</a>, customized by geeksforgeeks team </div>
+			  
+		   <div class="clear"></div>						                            
+		   
+		</div> <!--end footer-->  
+        
+		<!--[if !lte IE 8]><!--> 
+<!--<![endif]--> 
+                <script type="text/javascript">
+                var sub = document.getElementById('submit');
+                document.getElementById('recaptcha-submit-btn-area').appendChild (sub);
+                document.getElementById('submit').tabIndex = 6;
+                if ( typeof _recaptcha_wordpress_savedcomment != 'undefined') {
+                        document.getElementById('comment').value = _recaptcha_wordpress_savedcomment;
+                }
+                document.getElementById('recaptcha_table').style.direction = 'ltr';
+                </script><script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shBrushCpp.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/social.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%204%20%28Subset%20Sum%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/in.js"></script>
+<!-- Facebook Comments for WordPress: http://3doordigital.com/wordpress/plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=308017392649785";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+				  
+		</div> <!--end wrapper-->
+        
+        </body></html>

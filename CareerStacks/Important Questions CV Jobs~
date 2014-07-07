@@ -1,0 +1,357 @@
+2) There are 6 bottles of drinks out of which one is poisoned. If a man tastes a drop of
+that, he will die within 10 hours (Note : This part is different from that of the first question.
+In previous question it was "exactly at the 10th hour" but here it is "within 10 hours"). A
+doctor decides to check it out by using some number of mice within 16 hours. Then the
+minimum number of mice needed to find out the poisoned bottle is:
+a)2
+b)4
+c)6
+d)3
+Answer : d)3
+Solution :
+If mouse would die exactly at 10 hours then definitely 1 will be the answer but here the
+given condition says that mouse will die within 10 hours.
+so this question can be solved by set theory.
+There is a Formula to use for these types of problems :
+Consider there are b bottles to be tested. Then the minimum value of m such that 2m > =
+b gives the minimum number of mice required.
+In our case b = 6.
+The minimum value of m for 2m > 6 is 3. (21=2, 22 = 4, 23 = 8. Only when m = 3, 2m
+exceeds 6.)
+
+
+
+
+5) On dividing (18377)10 by 11 the remainder will be
+a)1
+b)10
+c)9
+d)2
+Answer : a)1
+Solution :
+To Remember :
+Fermat's Little Theorem states : "If a is an integer and not divisible by p then a(p-1) - 1
+is an integer multiple of p".
+i.e., we get the remainder 1 when we divide a(p-1) by p. 
+For example, consider a = 7 and p = 3. Here a is not divisible by p. a(p-1) - 1 = 7(3 - 1) - 1 =
+7(2) - 1 = 49 - 1 = 48 is a multiple of 3
+Here we have to divide (18377)10 by a prime 11.
+Now, take a = 18377 and p = 11 Then , a(p-1) = (18377)10
+Now, according to Fermat's Little Theorem, a(p-1) - 1 i.e (18377)10 - 1 should be an integer
+which is a multiple of 11
+(18377)10 - 1 when divided by 11 gives no remainder
+This implies (18377)10 when divided by 11 gives 1 as remainder
+Hence the answer is 1.
+
+
+
+
+
+) 4 equal aged boys and 6 equal aged girls were regularly attending a guitar class. 22
+is the average age of all and 56 is the age of two boys and three girls. After 3 years a
+boy is replaced by a new boy aged 15. Now, what will be the average age of boys?
+Options
+a) 13.5 years
+b) 15.4years
+c) 16.3 years
+d) 14 years
+Answer : a) 13.5 years.
+Solution:
+Let X and Y be the age of a boy and a girl respectively.
+Given that 22 is the average age of all.
+Then 4X/4 + 6Y/6 = 22
+i.e., X + Y = 22 ...eqn1
+Also given that, 56 is the age of two boys and three girls.
+Then, 2X + 3Y = 56 ...eqn2
+Solving the above equations, we get X=10, Y=12.
+That is, the age of each boy is 10 and age of each girl is 12.
+After 3 years, 1 among 4 boys leaves the group but replaced by a new 15 year old boy.
+Sum of the ages of 3 left over boys + new boy = Ages of original 3 boys after 3 years +
+Age of new boy = 3(X+3) + 15 = 3x13 + 15 = 54 years.
+Their average age = Total Age / 4 = 54/4 = 13.5 years.
+
+
+
+
+
+2) The product of the distinct roots of the equation (3x)(3x+2)(3x-4)(3x-6)= 64 is:
+a)-32/27
+b)-61/5
+c)63/16
+d)69/12
+Answer : a)-32/27
+Solution:
+Given that, (3x)(3x+2)(3x-4)(3x-6)= 64
+Let 3x - 2 = p
+Then the given eqn becomes
+(p + 2) (p + 4) (p - 2) (p - 4) = 64
+(p2 - 4) (p2 - 16) = 64
+
+
+
+
+3) A merchant had a diamond, cost of which varies as a square of its weight. The
+merchant broke the diamond into 3 pieces in the ratio (based on weights) 4:5:6. When
+the pieces were sold he incurred a loss of Rs.444000. What could be the original price of
+the diamond.
+a)Rs.750000
+b)Rs.665000
+c)Rs.600000
+d)Rs.675000
+Answer : d) Rs.675000.
+Solution:
+As given, the weights of the broken pieces are in the ratio 4:5:6.
+Let the actual weights of broken pieces be 4X,5X and 6X.
+Then weight of the original diamond = 4X + 5X + 6X = 15X
+Since the cost of a diamond varies as its square of the weight, the original cost will be
+(15X)2 = 225(X2). ...(1)
+The total cost of individual pieces will be (4X)2 + (5X)2 + (6X)2 = (16 + 25 + 36)x(X2) =
+77(X2). ...(2)
+The loss value = (1) - (2) = 225(X2)-77(X2) = 148(X2).
+But the above loss value is given to be Rs.444000
+Therefore, 148(X2)=Rs.444000
+X2 =Rs.444000/148.
+=Rs.3000
+Original cost = 225(X2) = 225 x 3000
+= 675000
+Hence the answer is Rs.675000.
+
+
+
+
+
+
+
+
+1) Is the integer k is divisible by 40?
+1) 8 is a factor of k
+2) k is a factor of 10
+Options :
+(a) statement 1 alone is sufficient, but statement 2 alone is not sufficient to answer the
+question
+(b) statement 2 alone is sufficient, but statement 1 alone is not sufficient to answer the
+question
+(c) both statements taken together are sufficient to answer the question, but neither
+statement alone is sufficient
+(d) each statement alone is sufficient
+(e) statements 1 and 2 together are not sufficient, and additional data is needed to
+answer the question.
+Answer : (b) statement 2 alone is sufficient, but statement 1 alone is not sufficient to
+answer the question.
+Solution :
+From statement 1,
+suppose 8 is a factor of k then k can be 8, 16, 24 and so on.
+Only some multiples of 8 are only divisible by 40
+Therefore the statement 1 alone is not sufficient to derive the answer.
+From statement 2,
+The factors of 10 are 1,2,5 and 10.
+If k is a factor of 10 then k belongs to {1,2,5,10}
+No element in the above set is divisible by 40.
+Hence k is certainly not divisible by 40. Hence using statement 2, we can give a
+conclusive answer that k is not divisible by 40.
+Thus statement2 alone is sufficient to answer the question.
+
+
+
+
+
+
+
+2) From a bus stand, buses leave for every 15 minutes to both temple and Railway
+junction. First bus towards junction is at 7.00 am and towards temple is at 7.10 a.m.
+Suppose you have to visit both temple and junction and decide to go by the first bus you
+encounter. Then the probability to get a bus towards temple is ___ .
+a)0.67 b)0.5 c)0.75 d)0.33
+Answer : a)0.67
+Solution :
+Let us discuss an interesting method to solve such problems :
+Let's simulate a 60 minute time period:
+A period of 60 Minutes broken into intervals of 5 minutes each:
+0 - 5 - 10 - 15 - 20 - 25 - 30 - 35 - 40 - 45 - 50 - 55 - 60(or "0" again)
+Arrival of BUS : ( t = temple, j = junction, X = no bus arrives at that particular time)
+j-X-t-j-X-t-j-X-t-j-X-t-j
+TO MAKE IT EASY TO UNDERSTAND WE HAVE WRITTEN THE SAME THING
+AGAIN.
+0 - 5 - 10 - 15 - 20 - 25 - 30 - 35 - 40 - 45 - 50 - 55 - 60
+j -X -t - j- X- t - j-x - t - j -x - t -j
+0
+10
+5
+10 5
+10 5
+10 5
+The line written immediately above (that is the 3rd line of data) has numbers
+corresponding to "t" and "j" which shows how many minutes a person has to wait till he
+gets the "First bus".
+Therefore,
+t= 10 + 10 + 10 + 10 = 40 Minutes
+j= 0 + 5 + 5 + 5 + 5 = 20 Minutes
+Therefore in 40 minutes of standing time for the bus you will get t bus and in 20 minutes
+of standing time for the bus you will get j bus.
+You will also see that this is the schedule for every hour after 7.00 A.M.
+This means that the probability to get t bus is = 40 Minutes / 60 Minutes = 2/3 = 0.67
+Also the probability to get j bus is = 20 Minutes / 60 Minutes = 1/3 = 0.33
+Hence the answer is 0.67
+
+
+
+
+
+
+3) In a family there are several brothers and sisters. Every 2 boys have brothers as
+many as sisters and each girl has 2 brothers less than twice as many brothers as sisters.
+Now find the number of boys and girls.
+a)6,8 b)8,6 c)12,10
+d)6,4
+Answer : b)8,6
+Solution:
+Let b be the number of brothers and s be the number of sisters in the family.
+Consider any two boys. They would be having b - 2 brothers (excluding the two). But this
+number is equal to the number of sisters they have.
+Therefore,
+b-2=s
+or b - s = 2 ----- (1)
+Each girl will have s - 1 sisters. Twice the number of sisters = 2(s - 1).
+Since each girl has twice as many brothers as sisters, we have, 2(s-1)-2 = b
+2s - 4 = b ---- (2).
+Sub b = 2s - 4 in eq 1, we get
+2s - 4 - s = 2
+s=6
+Sub s in eq 1 we get,
+b-6=2
+b=8
+
+
+
+
+
+
+
+
+
+5) The Calendar for the year 2013 is the same as for the year?
+a) 2020
+b) 2018
+c) 2017
+d) 2019
+Answer : d) 2019
+Solution:
+For calendar to repeat exactly, the dates and days have to match perfectly.
+Consider 2014 :
+Any date on 2014 will correspond to same date on 2013 advanced by one day. (same
+logic used in first question.) For example if Jan 1 is Tuesday on 2013, then Jan 1 will be
+Wednesday on 2014.
+Year 2014 2015 2016 (leap year)
+Advanced days 1 1 2
+2017 2018
+1
+2019
+1
+1
+In 2019 the total number of advancements will be 1 + 1 + 1 + 2 + 1 + 1 = 7 . Any week
+has seven days. Hence advancement of 7 days also means the days are going to be the
+same for any dates. That is if 1st Jan on 2013 is Tuesday, then 1st Jan on 2019 will also
+be Tuesday.
+Hence the calendar for the year 2013 and 2019 is the same.
+
+
+
+
+11) Today is 4.11.09. Keeping that figure 41109 in mind, i have arrived at the
+following sequence: 2, 1, 9, 5, _. Which of the following four numbers can fill the
+dash?
+Options
+a) 7
+b) 65
+c) 4563
+d) 262144
+Answer : d) 262144
+14 + 1 = 2
+11 + 0 = 1
+01 + 9 = 9
+90 + 4 = 5
+So next is 49 + 1 = 262144
+
+
+
+
+
+
+7) A train starts from A towards B with some velocity. Due to an engine problem, after
+travelling 3/8 of its journey, it slows to 3/5 of its actual velocity. The train reaches B 1
+hour later than the actual planned time. If the engine had failed after travelling 80km and
+if it would have slowed down to 4/5th of its initial velocity for another 80km and covered
+the remaining distance with 1/2 of its initial velocity, the train would have reached the
+destination one and half hours late. What is the distance between A and B in meters?
+a)10000
+b)480000
+c)240000
+d)520000
+Answer : b)480000
+Solution:
+Let the distance between A and B be X and the speed initially be V.
+The train travels 3X/8km with speed V and the remaining distance(X - 3X/8)km with
+speed 3/5 of V. Ultimately the train was late by 1 hour.
+According to the above condition with the formula " distance/speed = time", we can have
+[(3X/8)/V]+[(X-(3X/8))/(3V/5)] = [X/V]+1
+[3X/8V] + 5(8X-3X)/24V = [X/V]+1
+9X+25X-24X / 24V = 1
+10X-24V = 0 ..........eqn1
+According to the question, if the train travelled 80km with speed V, another 80km with
+4/5 th of V and the remaining distance(X-160)km with speed 1/2 of V then
+[80/V]+[80/(4V/5)]+[(X-160)/(1V/2)] = [X/V]+3/2
+
+
+
+
+12) There is a unique number of which the square and the cube together use all
+ciphers from 0 up to 9 exactly once. Which number is this?
+Answer: The number is 69.
+Explanation:
+69^2=4761 and 69^3=328509
+
+
+
+
+13) In a certain code RELATED to written as EFUBKDQ. How is RETAINS written in that
+code?
+a) SDQBTOJ b) JOTBQDS
+C) JOTBSDQ d) TOJBSDQ
+Answer : d) TOJBSDQ
+Reason :
+Inspecting how RELATED was written as EFUBKDQ, we can easily find that,
+RELATED – is first written as DETALER
+DETALER becomes EFUBKDQ (+1,+1,+1, +1,-1,-1,-1 – alphabetically)
+Applying the same logic to RETAINS we get,
+RETAINS is first written as SNIATER
+SNIATER becomes TOJBSDQ (applying the above rule)
+
+
+
+
+
+
+14) Six people – A,B,C,D, E and F are standing in a straight line facing north not
+necessarily in the same order. B is standing to the right of D. A is standing fourth to the
+left of F and F is not standing on the extreme end of the line. D is standing second to the
+left of B.
+In the above arrangement, which of the following pair represents the people standing at
+the extreme ends of the line?
+a) DF
+b) AC
+c) BC
+d) AF
+Answer : b) AC
+Reason :
+Based on the information given seating arrangement is as follows:
+north
+ADEBFC
+south
+
+
+
+
+
+
+
+

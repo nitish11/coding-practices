@@ -1,0 +1,107 @@
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="content-type" CONTENT="text/html;charset=iso-8859-1">
+		<META NAME="generator" CONTENT="GoLive CyberStudio">
+		<TITLE>Welcome to GoLive CyberStudio</TITLE>
+	</HEAD>
+	<BODY BGCOLOR="#000000">
+		<P><FONT SIZE="6" COLOR="#FFFFFF">Teasers With Answers</FONT></P>
+		<P><FONT SIZE="6" COLOR="#FFFFFF">Teaser 4</FONT></P>
+		<P>&nbsp;</P>
+		<P><FONT SIZE="4" COLOR="#FFFFFF">An old parchment describes the location of buried treasure thus:<BR>
+		&quot;On the island there are only two trees, A and B, and the remains
+		of a<BR>
+		gallows. Start at the gallows and count the steps required to
+		walk in a<BR>
+		straight line to tree A. At the tree turn 90 degrees to the left
+		and<BR>
+		then walk forward the same number of steps. At the point where
+		you top<BR>
+		drive a spike into the ground. Now return to the gallows and walk
+		in<BR>
+		a straight line, counting your steps, to tree B. When you reach
+		the<BR>
+		tree, turn 90 degrees to the right and take the same number of
+		steps <BR>
+		forward, placing another spike at the point where you stop. Dig
+		at <BR>
+		the point exactly halfway between the spikes and you will find
+		the<BR>
+		treasure.&quot; <BR>
+		However, our hero when he gets to the island finds the gallows
+		<BR>
+		missing. Is there any way he can still get to the treasure?</FONT></P>
+		<P>&nbsp;</P>
+		<P><FONT SIZE="4" COLOR="#FFFFFF">scroll down for answer!</FONT></P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<CENTER>
+			<P><FONT COLOR="#FFFFFF"><IMG SRC="strobe.gif" WIDTH="16" HEIGHT="16"> </FONT><FONT SIZE="6" COLOR="#FF0000">The Answer!</FONT><FONT COLOR="#FFFFFF"> <IMG SRC="strobe.gif" WIDTH="16" HEIGHT="16"></FONT></P>
+			<P>&nbsp;</P>
+			<P><FONT SIZE="4" COLOR="#FFFFFF">A simple experiment with a ruler and paper shows that any position
+			for <BR>
+			the gallows leads to the same point. However, it can be proven
+			with a bit of vector algebra...<BR>
+			<BR>
+			(best viewed with fixed width font)<BR>
+			<BR>
+			Define a square grid with its origin at tree A (herein point A)
+			tree B at <BR>
+			(0,1). Gallows G exist at arbitrary point (x,y). <BR>
+			<BR>
+			The walk from G -&gt; A == (-x,-y)<BR>
+			The walk from G -&gt; B == (-x,-y+1)<BR>
+			<BR>
+			Let A* denote the position after turning left at tree A, and B*
+			denote <BR>
+			the position reached after turning right at tree B.<BR>
+			<BR>
+			The walk from A -&gt; A* == (+y,-x)<BR>
+			The walk from B -&gt; B* == (-y+1,x)<BR>
+			(not entirely obvious, but true!)<BR>
+			<BR>
+			The walk from G -&gt; A* == (G -&gt; A) + (A -&gt; A*)<BR>
+			== (-x+y , -x-y )<BR>
+			<BR>
+			The walk from G -&gt; B* == (G -&gt; B) + (B -&gt; B*)<BR>
+			== (-x-y+1 , x-y+1)<BR>
+			<BR>
+			The walk from A* -&gt; B* == (G -&gt; B*) - (G -&gt; A*)<BR>
+			== (-x-y+1+x-y , x-y+1+x+y )<BR>
+			== (1-2y , 1+2x)<BR>
+			<BR>
+			Now, the walk to the treasure is (A-&gt;A*) + .5(A*-&gt;B*) since the
+			treasure <BR>
+			is half way from A* to B*<BR>
+			<BR>
+			== (+y,-x) + .5(1-2y , 1+2x)<BR>
+			== (+y+.5-y , -x+.5+x)<BR>
+			== (.5,.5)<BR>
+			<BR>
+			So stand at A, walk half way to B, turn RIGHT and walk the same
+			distance <BR>
+			straight ahead. Get digging.....</FONT></P>
+		</CENTER>
+		<P>&nbsp;</P>
+		<P><FONT SIZE="4" COLOR="#FFFFFF">Click below for:</FONT></P>
+		
+<P><A HREF="BTWA5.html"><IMG SRC="Image-1328262249.gif" WIDTH="32" HEIGHT="32"></A></P>
+<P><font color="#E3E3E3"><a href="index.html">Home</a> - <a href="BTWA.html">Brain 
+  Teasers With Answers Index </a> - <a href="random.html">Random</a></font></P>
+	</BODY>
+</HTML>

@@ -1,0 +1,1298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        <meta name="verify-v1" content="Qq4cneB3rmao09eEEtLOJX2rw+5ZMdf8/CiGxO9IulU=">
+        <meta name="y_key" content="79a87047956c2ff1">       
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="WordPress 3.5.1">
+
+        <title>Backtracking | Set 5 (m Coloring Problem) - GeeksforGeeks | GeeksforGeeks</title>
+   
+       <style type="text/css" media="screen">
+          @import url('http://www.geeksforgeeks.org/wp-content/themes/minimoo/style.css');
+    </style>
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.geeksforgeeks.org/feed/rss/">
+    <link rel="alternate" type="application/rss+xml" title="RSS 0.92" href="http://www.geeksforgeeks.org/feed/">
+    <link rel="alternate" type="application/rss+xml" title="Atom" href="http://www.geeksforgeeks.org/feed/atom/">
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0 comments feed" href="http://www.geeksforgeeks.org/comments/feed/">   
+    <link rel="pingback" href="http://www.geeksforgeeks.org/xmlrpc.php">
+    <link href="http://www.geeksforgeeks.org/wp-content/themes/minimoo/favicon.ico" rel="shortcut icon">      
+     <script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/client.js" async="" type="text/javascript" id="LR1"></script><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/all.js" id="facebook-jssdk"></script><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/widgets.js" id="twitter-wjs"></script><script gapi_processed="true" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/plusone.js" async="" type="text/javascript"></script><script async="" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/cbgapi.loaded_0"></script><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/ga.js" async="" type="text/javascript"></script><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/mootools_core.js" type="text/javascript"></script>
+     <script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/mootools_more.js" type="text/javascript"></script>
+   
+    <script type="text/javascript">
+        //if (document.images) {
+        //    var preload_image = new Image(32,32);
+        //    preload_image.src = "http://www.geeksforgeeks.org/wp-content/themes/minimoo/js/ajax-loader.gif";
+        //}   
+       
+        var comments_per_page = 50;
+        var comment_order = 'desc';
+        var default_comments_page = 'newest';
+    </script>
+   
+     <script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/main.js" type="text/javascript"></script>
+   
+       
+    	 <!--[if lte IE 8]>
+<div id="fb-root" style="width: 90;"></div> 
+ 
+<!--<![endif]-->
+
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.7 - http://yoast.com/wordpress/seo/ -->
+<link rel="canonical" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backtracking | Set 5 (m Coloring Problem) - GeeksforGeeks">
+<meta property="og:url" content="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/">
+<meta property="og:site_name" content="GeeksforGeeks">
+<meta property="og:image" content="http://www.geeksforgeeks.org/wp-content/uploads/graph_col.png">
+<!-- / Yoast WordPress SEO plugin. -->
+
+
+            <script type="text/javascript">//<![CDATA[
+            // Google Analytics for WordPress by Yoast v4.3.3 | http://yoast.com/wordpress/google-analytics/
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-12148232-1']);
+				            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+            //]]></script>
+			<link rel="alternate" type="application/rss+xml" title="GeeksforGeeks » Backtracking | Set 5 (m Coloring Problem) Comments Feed" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/feed/">
+<link rel="stylesheet" id="bbp-default-bbpress-css" href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/bbpress.css" type="text/css" media="screen">
+<link rel="stylesheet" id="jamie_social-css" href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/social.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-css" href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/pagenavi-css.css" type="text/css" media="all">
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/comment-reply.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/jquery.js"></script>
+<script type="text/javascript">try{jQuery.noConflict();}catch(e){};</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/all_002.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/googletracking.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/head_twitterlinkedin.js"></script><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/widgets.js" async="" type="text/javascript"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/wp-quicklatex-frontend.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.geeksforgeeks.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.geeksforgeeks.org/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 3.5.1">
+<link rel="shortlink" href="http://www.geeksforgeeks.org/?p=19042">
+
+<!-- Bad Behavior 2.2.14 run time: 2.190 ms -->
+<script type="text/javascript">
+<!--
+function bb2_addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
+bb2_addLoadEvent(function() {
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1370019482 223.181.78.6';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+// --></script>
+		
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			
+						jQuery(document).ready( function() {
+
+				/* Use backticks instead of <code> for the Code button in the editor */
+				if ( typeof( edButtons ) !== 'undefined' ) {
+					edButtons[110] = new QTags.TagButton( 'code', 'code', '`', '`', 'c' );
+					QTags._buttonsInit();
+				}
+
+				/* Tab from topic title */
+				jQuery( '#bbp_topic_title' ).bind( 'keydown.editor-focus', function(e) {
+					if ( e.which !== 9 )
+						return;
+
+					if ( !e.ctrlKey && !e.altKey && !e.shiftKey ) {
+						if ( typeof( tinymce ) !== 'undefined' ) {
+							if ( ! tinymce.activeEditor.isHidden() ) {
+								var editor = tinymce.activeEditor.editorContainer;
+								jQuery( '#' + editor + ' td.mceToolbar > a' ).focus();
+							} else {
+								jQuery( 'textarea.bbp-the-content' ).focus();
+							}
+						} else {
+							jQuery( 'textarea.bbp-the-content' ).focus();
+						}
+
+						e.preventDefault();
+					}
+				});
+
+				/* Shift + tab from topic tags */
+				jQuery( '#bbp_topic_tags' ).bind( 'keydown.editor-focus', function(e) {
+					if ( e.which !== 9 )
+						return;
+
+					if ( e.shiftKey && !e.ctrlKey && !e.altKey ) {
+						if ( typeof( tinymce ) !== 'undefined' ) {
+							if ( ! tinymce.activeEditor.isHidden() ) {
+								var editor = tinymce.activeEditor.editorContainer;
+								jQuery( '#' + editor + ' td.mceToolbar > a' ).focus();
+							} else {
+								jQuery( 'textarea.bbp-the-content' ).focus();
+							}
+						} else {
+							jQuery( 'textarea.bbp-the-content' ).focus();
+						}
+
+						e.preventDefault();
+					}
+				});
+			});
+						/* ]]> */
+		</script>
+
+	<meta property="fb:app_id" content="308017392649785">
+<meta property="fb:admins" content="100002858089465,678632134">
+<style type="text/css">
+	div.wpld_pr {
+		font-size: 6pt;
+		color: #000000;
+		float: left;
+		height: 30px;
+		margin-right: 5px;
+	}
+	div.wpld_prg {
+		width: 40px;
+		border: 1px solid #999999;
+		height: 3px;
+		font-size: 1px;
+	}
+	div.wpld_prb {
+		background: #5eaa5e;
+		height: 3px;
+		font-size: 1px;
+	}
+	.wpld_panel {
+		padding:6px;
+		background:#ddd;
+		border:1px solid black;
+	}
+	/* All pages are, or will become, encloded in <span>s of this class */
+	.wpld_page{
+		/* background: #FDEEF4;
+		border: 1px dashed #505050;
+		font: 12px arial; */
+	}
+	/* The links including link title, description and pagerank icon */
+	.wpld_links{
+	}
+	.wpld_premium_links{
+		border: 1px dashed #000;
+		background-color:#FFFF99;
+		font: 14px arial;
+	}
+	/* The navbar which shows these links: Home | Add URL | Link To Us | Search */
+	.wpld_navbar {
+	}
+</style><link rel="stylesheet" type="text/css" href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/recaptcha.css">	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shThemeDefault.css" type="text/css" rel="stylesheet"><style type="text/css" id="syntaxhighlighteranchor"></style>
+   
+<style type="text/css">.recaptchatable td img{display:block}.recaptchatable .recaptcha_r1_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') 0 -63px no-repeat;width:318px;height:9px}.recaptchatable .recaptcha_r2_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -18px 0 no-repeat;width:9px;height:57px}.recaptchatable .recaptcha_r2_c2{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -27px 0 no-repeat;width:9px;height:57px}.recaptchatable .recaptcha_r3_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') 0 0 no-repeat;width:9px;height:63px}.recaptchatable .recaptcha_r3_c2{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -18px -57px no-repeat;width:300px;height:6px}.recaptchatable .recaptcha_r3_c3{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -9px 0 no-repeat;width:9px;height:63px}.recaptchatable .recaptcha_r4_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -43px 0 no-repeat;width:171px;height:49px}.recaptchatable .recaptcha_r4_c2{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -36px 0 no-repeat;width:7px;height:57px}.recaptchatable .recaptcha_r4_c4{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -214px 0 no-repeat;width:97px;height:57px}.recaptchatable .recaptcha_r7_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -43px -49px no-repeat;width:171px;height:8px}.recaptchatable .recaptcha_r8_c1{background:url('http://www.google.com/recaptcha/api/img/red/sprite.png') -43px -49px no-repeat;width:25px;height:8px}.recaptchatable .recaptcha_image_cell center img{height:57px}.recaptchatable .recaptcha_image_cell center{height:57px}.recaptchatable .recaptcha_image_cell{background-color:white;height:57px}#recaptcha_area,#recaptcha_table{width:318px!important}.recaptchatable,#recaptcha_area tr,#recaptcha_area td,#recaptcha_area th{margin:0!important;border:0!important;padding:0!important;border-collapse:collapse!important;vertical-align:middle!important}.recaptchatable *{margin:0;padding:0;border:0;font-family:helvetica,sans-serif;font-size:8pt;color:black;position:static;top:auto;left:auto;right:auto;bottom:auto}.recaptchatable #recaptcha_image{margin:auto}.recaptchatable img{border:0!important;margin:0!important;padding:0!important}.recaptchatable a,.recaptchatable a:hover{cursor:pointer;outline:none;border:0!important;padding:0!important;text-decoration:none;color:blue;background:none!important;font-weight:normal}.recaptcha_input_area{position:relative!important;width:153px!important;height:45px!important;margin-left:7px!important;margin-right:7px!important;background:none!important}.recaptchatable label.recaptcha_input_area_text{margin:0!important;padding:0!important;position:static!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;background:none!important;height:auto!important;width:auto!important}.recaptcha_theme_red label.recaptcha_input_area_text,.recaptcha_theme_white label.recaptcha_input_area_text{color:black!important}.recaptcha_theme_blackglass label.recaptcha_input_area_text{color:white!important}.recaptchatable #recaptcha_response_field{width:153px!important;position:relative!important;bottom:7px!important;padding:0!important;margin:15px 0 0 0!important;font-size:10pt}.recaptcha_theme_blackglass #recaptcha_response_field,.recaptcha_theme_white #recaptcha_response_field{border:1px solid gray}.recaptcha_theme_red #recaptcha_response_field{border:1px solid #cca940}.recaptcha_audio_cant_hear_link{font-size:7pt;color:black}#recaptcha_instructions_error{color:red!important}.recaptcha_only_if_privacy{float:right;text-align:right}
+
+.recaptcha_is_showing_audio .recaptcha_only_if_image,.recaptcha_isnot_showing_audio .recaptcha_only_if_audio,.recaptcha_had_incorrect_sol .recaptcha_only_if_no_incorrect_sol,.recaptcha_nothad_incorrect_sol .recaptcha_only_if_incorrect_sol{display:none !important}</style><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/nonSecureAnonymousFramework"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+/* @noflip */
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+/* @noflip */
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+/* @noflip */
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+/* @noflip */
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+/* @noflip */
+.fbpluginrecommendationsbarleft{left:10px}
+/* @noflip */
+.fbpluginrecommendationsbarright{right:10px}</style><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/a" type="text/javascript"></script><style type="text/css">.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsq_a{padding:0}.gscsep_a{display:none}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;user-select:none;-moz-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gssb_a{padding:0 7px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/search.js" type="text/javascript"></script></head>
+
+<body data-twttr-rendered="true"><iframe src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/hub.htm" style="position: absolute; top: -9999em; width: 10px; height: 10px;" name="twttrHubFrameSecure" tabindex="0" allowtransparency="true" id="twttrHubFrameSecure" frameborder="0" scrolling="no"></iframe><iframe src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/hub_002.htm" style="position: absolute; top: -9999em; width: 10px; height: 10px;" name="twttrHubFrame" tabindex="0" allowtransparency="true" id="twttrHubFrame" frameborder="0" scrolling="no"></iframe>
+<!-- o4dI0sCXUgoSONabbd8mbZ4SA3E -->    
+    <div id="wrapper">
+        <div class="blog-info">
+                <h1 class="blog-title">
+                <a href="http://www.geeksforgeeks.org/" title="GeeksforGeeks">GeeksforGeeks</a>
+            </h1>
+       
+            <div class="blog-description">
+                A computer science portal for geeks            </div>
+        </div>
+        <b><p> <br><br> <a rel="nofollow" href="http://www.geeksforgeeks.org/wp-login.php">Log in</a></p></b>  
+           <div class="clear"></div>         
+              
+                     
+            <div id="menu">   
+                 <ul>
+                   <li><a href="http://www.geeksforgeeks.org/">
+                              Home</a></li>
+                               <li><a href="http://www.geeksforgeeks.org/forums/">Q&amp;A</a></li>
+                               <li><a href="http://www.geeksforgeeks.org/about/interview-corner/">Interview Corner</a></li>
+                               <li><a href="http://www.geeksforgeeks.org/contribute/ask-a-question/">Ask a question</a></li>   
+            </ul>
+
+            <ul>
+                <li class="page_item page-item-9830"><a href="http://www.geeksforgeeks.org/contribute/">Contribute</a></li>
+<li class="page_item page-item-21638"><a href="http://www.geeksforgeeks.org/gate-corner/">GATE</a></li>
+<li class="page_item page-item-24811"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/">Algorithms</a></li>
+<li class="page_item page-item-24966"><a href="http://www.geeksforgeeks.org/c/">C</a></li>
+<li class="page_item page-item-25749"><a href="http://www.geeksforgeeks.org/c-plus-plus/">C++</a></li>
+<li class="page_item page-item-26089"><a href="http://www.geeksforgeeks.org/books/">Books</a></li>
+<li class="page_item page-item-2"><a href="http://www.geeksforgeeks.org/about/">About us</a></li>
+                             </ul> 
+                     
+            <div class="rssfeed">
+                <!--<a href="http://feeds.feedburner.com/limetouch" title="Subscribe to LimeTouch RSS Feed"><strong>Subscribe</strong></a>-->
+                <!--<<a href="http://feeds.feedburner.com/Geeksforgeeks" title="Subscribe to GeeksforGeeks RSS Feed"><strong>Subscribe</strong></a>-->            
+            </div>    
+               
+            <div class="clear"></div>     
+        </div>
+             <div id="navmenu">
+				<ul id="menu" style="padding:0; margin:0;">
+						<li class="cat-item cat-item-3"><a href="http://www.geeksforgeeks.org/category/c-arrays" title="Questions regarding Arrays">Arrays</a>
+</li>	
+
+	<li class="cat-item cat-item-17"><a href="http://www.geeksforgeeks.org/category/bit-magic" title="View all posts filed under Bit Magic">Bit Magic</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.geeksforgeeks.org/category/c-puzzles" title="View all posts filed under C/C++ Puzzles">C/C++ Puzzles</a>
+</li>
+
+<li class="cat-item cat-item-18"><a href="http://www.geeksforgeeks.org/category/articles" title="View all posts filed under Articles">Articles</a>
+</li>
+
+	<li class="cat-item cat-item-67"><a href="http://www.geeksforgeeks.org/category/gfact" title="View all posts filed under GFacts">GFacts</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.geeksforgeeks.org/category/linked-list" title="Linked List problems">Linked Lists</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="http://www.geeksforgeeks.org/category/multiple-choice-question" title="View all posts filed under MCQ">MCQ</a>
+
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.geeksforgeeks.org/category/c-programs" title="Miscellaneous">Misc</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.geeksforgeeks.org/category/program-output" title="View all posts filed under Output">Output</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.geeksforgeeks.org/category/c-strings" title="Questions related to strings">Strings</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.geeksforgeeks.org/category/tree" title="View all posts filed under Trees">Trees</a>
+</li>
+</ul>
+        </div>
+             <div id="content">	   	
+	
+	
+	<div class="post" id="post">
+	
+		
+			
+				
+			<div class="post-main" id="post-19042">
+		
+				<div class="post-info">			
+					<div class="post-title-info">
+						<h2 class="post-title">Backtracking | Set 5 (m Coloring Problem)</h2>
+					</div>
+					
+					<div class="post-date">May 1, 2012</div>
+					<div class="clear"></div>
+				</div>
+				  
+				<div class="post-content" id="post-content">
+					<p>Given an undirected graph and a number m, determine if the graph
+ can be colored with at most m colors such that no two adjacent vertices
+ of the graph are colored with same color. Here coloring of a graph 
+means assignment of colors to all vertices. <span id="more-19042"></span></p>
+<p><em>Input:</em><br>
+1) A 2D array graph[V][V] where V is the number of vertices in graph and
+ graph[V][V] is adjacency matrix representation of the graph. A value 
+graph[i][j] is 1 if there is a direct edge from i to j, otherwise 
+graph[i][j] is 0.<br>
+2) An integer m which is maximum number of colors that can be used.</p>
+<p><em>Output:</em><br>
+An array color[V] that should have numbers from 1 to m. color[i] should 
+represent the color assigned to the ith vertex. The code should also 
+return false if the graph cannot be colored with m colors.</p>
+<p>Following is an example graph (from <a href="http://en.wikipedia.org/wiki/Graph_coloring">Wiki page </a>) that can be colored with 3 colors.<br>
+<a href="http://www.geeksforgeeks.org/wp-content/uploads/graph_col.png"><img src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/graph_col.png" alt="" title="graph_col" class="aligncenter size-full wp-image-19049" height="211" width="220"></a></p>
+<p><strong>Naive Algorithm</strong><br>
+Generate all possible configurations of colors and print a configuration that satisfies the given constraints.</p>
+<pre>while there are untried conflagrations
+{
+   generate the next configuration
+   if no adjacent vertices are colored with same color
+   {
+      print this configuration;
+   }
+}
+</pre>
+<p>There will be V^m configurations of colors.</p>
+<p><strong>Backtracking Algorithm</strong><br>
+The idea is to assign colors one by one to different vertices, starting 
+from the vertex 0. Before assigning a color, we check for safety by 
+considering already assigned colors to the adjacent vertices. If we find
+ a color assignment which is safe, we mark the color assignment as part 
+of solution. If we do not a find color due to clashes then we backtrack 
+and return false.</p>
+<p><strong>Implementation of Backtracking solution</strong></p>
+<pre class="brush: cpp; highlight: [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72]; title: ; notranslate" title="">#include&lt;stdio.h&gt;
+
+// Number of vertices in the graph
+#define V 4
+
+void printSolution(int color[]);
+
+/* A utility function to check if the current color assignment
+   is safe for vertex v */
+bool isSafe (int v, bool graph[V][V], int color[], int c)
+{
+    for (int i = 0; i &lt; V; i++)
+        if (graph[v][i] &amp;&amp; c == color[i])
+            return false;
+    return true;
+}
+
+/* A recursive utility function to solve m coloring problem */
+bool graphColoringUtil(bool graph[V][V], int m, int color[], int v)
+{
+    /* base case: If all vertices are assigned a color then
+       return true */
+    if (v == V)
+        return true;
+
+    /* Consider this vertex v and try different colors */
+    for (int c = 1; c &lt;= m; c++)
+    {
+        /* Check if assignment of color c to v is fine*/
+        if (isSafe(v, graph, color, c))
+        {
+           color[v] = c;
+
+           /* recur to assign colors to rest of the vertices */
+           if (graphColoringUtil (graph, m, color, v+1) == true)
+             return true;
+
+            /* If assigning color c doesn't lead to a solution
+               then remove it */
+           color[v] = 0;
+        }
+    }
+
+    /* If no color can be assigned to this vertex then return false */
+    return false;
+}
+
+/* This function solves the m Coloring problem using Backtracking.
+  It mainly uses graphColoringUtil() to solve the problem. It returns
+  false if the m colors cannot be assigned, otherwise return true and
+  prints assignments of colors to all vertices. Please note that there
+  may be more than one solutions, this function prints one of the
+  feasible solutions.*/
+bool graphColoring(bool graph[V][V], int m)
+{
+    // Initialize all color values as 0. This initialization is needed
+    // correct functioning of isSafe()
+    int *color = new int[V];
+    for (int i = 0; i &lt; V; i++)
+       color[i] = 0;
+
+    // Call graphColoringUtil() for vertex 0
+    if (graphColoringUtil(graph, m, color, 0) == false)
+    {
+      printf("Solution does not exist");
+      return false;
+    }
+
+    // Print the solution
+    printSolution(color);
+    return true;
+}
+
+/* A utility function to print solution */
+void printSolution(int color[])
+{
+    printf("Solution Exists:"
+            " Following are the assigned colors \n");
+    for (int i = 0; i &lt; V; i++)
+      printf(" %d ", color[i]);
+    printf("\n");
+}
+
+// driver program to test above function
+int main()
+{
+    /* Create following graph and test whether it is 3 colorable
+      (3)---(2)
+       |   / |
+       |  /  |
+       | /   |
+      (0)---(1)
+    */
+    bool graph[V][V] = {{0, 1, 1, 1},
+        {1, 0, 1, 0},
+        {1, 1, 0, 1},
+        {1, 0, 1, 0},
+    };
+    int m = 3; // Number of colors
+    graphColoring (graph, m);
+    return 0;
+}
+</pre>
+<p>Output:
+</p><pre>Solution Exists: Following are the assigned colors
+ 1  2  3  2
+</pre>
+<p><strong>References:</strong><br>
+<a href="http://en.wikipedia.org/wiki/Graph_coloring">http://en.wikipedia.org/wiki/Graph_coloring</a></p>
+<p>Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above.</p>
+		
+ <span class="martiniboy_social_list">
+<ul class="jamie_social martinileft">
+  <li class="martinifb"><fb:like class="fb_edge_widget_with_comment fb_iframe_widget" fb-xfbml-state="rendered" send="false" layout="button_count" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/" show_faces="false" width="90"><span style="height: 19px; width: 70px;"><iframe src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/like.htm" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 19px; width: 70px;" name="f27cc2485aa4f0a" id="f1e16f9c8591502" scrolling="no"></iframe></span></fb:like>   </li>
+
+
+    <!--[if !lte IE 7]><!-->
+  <li>
+    <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/fastbutton.htm" name="I0_1370542524971" id="I0_1370542524971" vspace="0" tabindex="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+  </li>
+  <!--<![endif]-->
+    <li><iframe data-twttr-rendered="true" title="Twitter Tweet Button" style="width: 108px; height: 20px;" class="twitter-share-button twitter-count-horizontal" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/tweet_button.htm" allowtransparency="true" frameborder="0" scrolling="no"></iframe></li>
+    <li><script type="in/share" data-url="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/" data-counter="right" data-onsuccess="LinkedInShare"></script></li>
+  </ul>
+<br class="jamie_clear">
+</span>
+ 
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9465609616171866";
+/* Big Rectangle Blog Bottom */
+google_ad_slot = "4061219431";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px"><ins id="aswift_0_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="280" scrolling="no" width="336"></iframe></ins></ins>     			
+
+<div class="yarpp-related">
+<b>You may also like following posts</b><ol>
+<li><a href="http://www.geeksforgeeks.org/backttracking-set-2-rat-in-a-maze/" rel="bookmark" title="Backtracking | Set 2 (Rat in a Maze)">Backtracking | Set 2 (Rat in a Maze)</a></li>
+<li><a href="http://www.geeksforgeeks.org/backtracking-set-3-n-queen-problem/" rel="bookmark" title="Backtracking | Set 3 (N Queen Problem)">Backtracking | Set 3 (N Queen Problem)</a></li>
+<li><a href="http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/" rel="bookmark" title="Depth First Traversal for a Graph">Depth First Traversal for a Graph</a></li>
+<li><a href="http://www.geeksforgeeks.org/detect-cycle-in-a-graph/" rel="bookmark" title="Detect Cycle in a Graph">Detect Cycle in a Graph</a></li>
+<li><a href="http://www.geeksforgeeks.org/find-if-there-is-a-path-between-two-vertices-in-a-given-graph/" rel="bookmark" title="Find if there is a path between two vertices in a directed graph">Find if there is a path between two vertices in a directed graph</a></li>
+</ol>
+</div>
+				</div>		  
+
+<!-- Facebook Comments for WordPress: http://3doordigital.com/wordpress/plugins/facebook-comments/ --><h3>Facebook Comments</h3><p><fb:comments-count class=" fb_comments_count_zero" fb-xfbml-state="rendered" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/"><span class="fb_comments_count">0</span></fb:comments-count> comments</p><div fb-xfbml-state="rendered" class="fb-comments fb_iframe_widget" data-href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/" data-num-posts="5" data-width="450" data-colorscheme="light"><span style="height: 160px; width: 450px;"><iframe src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/comments.htm" class="fb_ltr" title="Facebook Social Plugin" style="border: medium none; overflow: hidden; height: 160px; width: 450px;" name="f39b919d4e30a9e" id="fd80b9e6e29c8a" scrolling="no"></iframe></span></div>	
+				  <!--
+				  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/"
+    dc:identifier="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/"
+    dc:title="Backtracking | Set 5 (m Coloring Problem)"
+    trackback:ping="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/trackback/" />
+</rdf:RDF>				  -->           
+
+			</div> <!-- end post main -->
+					
+			<div class="post-meta">
+				<div class="left"></div>				
+				<div class="clear"></div>
+			</div>				
+
+					
+			
+        
+			 
+
+			<div class="comments-main">			                     
+					  <div class="comments" id="commentsdiv">
+	  	<div id="commentsholder">
+		                          
+			<div class="list" id="comments">
+				<h3 id="commentCount">10 comments so far</h3>
+  
+				<ol class="commentlist" id="commentlist">                            
+							<li class="comment even thread-even depth-1 parent" id="comment-9666">
+				<div id="div-comment-9666" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">soupboy</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-9666">
+			July 19, 2012 at 8:34 AM</a>		</div>
+
+		<p>Hi, shouldn't the brute force algorithm's complexity be m^V and not V^m as written above ?</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=9666#respond" onclick='return addComment.moveForm("div-comment-9666", "9666", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-2" id="comment-10909">
+				<div id="div-comment-10909" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">coolguy</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-10909">
+			September 16, 2012 at 11:25 PM</a>		</div>
+
+		<p>You can understand graph coloring using backtracking by watching this video<br>
+youtu.be/Cl3A_9hokjU</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=10909#respond" onclick='return addComment.moveForm("div-comment-10909", "10909", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-8422">
+				<div id="div-comment-8422" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Rohit Raj</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8422">
+			May 14, 2012 at 12:10 PM</a>		</div>
+
+		<p>bool isSafe (int v, bool graph[V][V], int color[], int c)<br>
+{<br>
+    for (int i = 0; i &lt; V; i++)<br>
+        if (graph[v][i] &amp;&amp; c == color[i])<br>
+            return false;<br>
+    return true;<br>
+}</p>
+<p>as the problem statement says that if (i == j ) then also the 
+graph[i][j] = 1; so shouldn't we check for this condition in this 
+function?<br>
+i.e if(graph[v][i] &amp;&amp; c == color[i] &amp;&amp; v != i).</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8422#respond" onclick='return addComment.moveForm("div-comment-8422", "8422", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-2" id="comment-8423">
+				<div id="div-comment-8423" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">kartik</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8423">
+			May 14, 2012 at 1:15 PM</a>		</div>
+
+		<p>@Rohit Raj</p>
+<p>We don't need to check for this as we assign a color c only after 
+isSafe() returns true. Before calling isSafe(), we assign the color 
+value as 0 which is not a valid value.  When we call isSafe(), the value
+ of c will be greater than 0 and value of color[v] will be 0. So 
+color[v] will never be equal to c. I hope this clarifies your doubt.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8423#respond" onclick='return addComment.moveForm("div-comment-8423", "8423", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-8306">
+				<div id="div-comment-8306" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">gautam</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8306">
+			May 5, 2012 at 12:39 AM</a>		</div>
+
+		<p>Can be use some dynamic programming to reduce complexity</p>
+<pre class="brush: cpp; title: ; notranslate" title="">/* Paste your code here (You may delete these lines if not writing code) */
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8306#respond" onclick='return addComment.moveForm("div-comment-8306", "8306", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-8272">
+				<div id="div-comment-8272" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Venki</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8272">
+			May 2, 2012 at 9:46 AM</a>		</div>
+
+		<p>There is small bug in the code. The colour vector should be of size
+ V in lieu of m. In the current code, the program tries to access 
+elements past the buffer end (while checking validity of colour 
+assignment).</p>
+<p>What is the worst case complexity? O(V * m V) as we are exploring all configurations and doing O(V) work at each call.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8272#respond" onclick='return addComment.moveForm("div-comment-8272", "8272", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-8273">
+				<div id="div-comment-8273" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">GeeksforGeeks</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8273">
+			May 2, 2012 at 10:15 AM</a>		</div>
+
+		<p>@Venki: Thanks for pointing this out. This has been fixed. Yes, the
+ worst case complexity will be O( V * (m^V) ) as we may have to try all 
+configurations in worst case.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8273#respond" onclick='return addComment.moveForm("div-comment-8273", "8273", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-8268">
+				<div id="div-comment-8268" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Guddu sharma</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8268">
+			May 1, 2012 at 9:01 PM</a>		</div>
+
+		<p>What is the need of following if condition:<br>
+if (graphColoringUtil (graph, m, color, v+1) == true)<br>
+             return true;</p>
+<p>I think when all the vertices have been assigned color,the first condition if(v==V) return true,which is sufficient.</p>
+<p>Please comment if i have understood something wrong..</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8268#respond" onclick='return addComment.moveForm("div-comment-8268", "8268", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-8269">
+				<div id="div-comment-8269" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">kartik</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8269">
+			May 1, 2012 at 9:19 PM</a>		</div>
+
+		<p>@Guddu sharma: The statement serves two purposes:<br>
+1) It calls the function recursively for the other vertices.<br>
+2) It returns true as soon as one of the color assignments lead to a 
+solution. So that other colors are not checked as soon as a color 
+assignment works.</p>
+<p>Also, just putting following line is not sufficient. We need to forward the result of this function call to parent calls. </p>
+<pre class="brush: cpp; title: ; notranslate" title="">    if (v == V)
+        return true;
+</pre>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8269#respond" onclick='return addComment.moveForm("div-comment-8269", "8269", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt depth-2" id="comment-8270">
+				<div id="div-comment-8270" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Venki</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#comment-8270">
+			May 1, 2012 at 9:28 PM</a>		</div>
+
+		<p>@Guddu sharma, We need to find *one* feasible solution. The 
+condition if(v==V) is recursion base case to end infinite recursion. 
+When we reach the end branch in the state space tree and still not found
+ solution, we need to backtrack to one level upper and restore the 
+state.</p>
+<p>Similarly, if the current assignment is safe, (means the branch 
+generated in the tree can be part of solution state), we recur to next 
+level for next feasible color.</p>
+<p>The condition</p>
+<pre class="brush: cpp; title: ; notranslate" title="">/* recur to assign colors to rest of the vertices */
+if (graphColoringUtil (graph, m, color, v+1) == true)
+    return true;
+</pre>
+<p>checks next color. If this next color reaches last color, we are done which will be returned at the if condition</p>
+<pre class="brush: cpp; title: ; notranslate" title="">if (v == V)
+        return true;
+</pre>
+<p>Try to draw the state space tree for small values of V and m, you can easily understand the backtracking procedure.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/?replytocom=8270#respond" onclick='return addComment.moveForm("div-comment-8270", "8270", "respond", "19042")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+				</ol>						
+				
+				<span class="left"></span>
+				<span class="right"></span>
+				<div class="clear"></div>
+			</div>
+				</div>
+		
+				
+		<div class="form" id="respond">
+
+			<h3 class="respond">Comment</h3>
+			<div id="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/#respond" style="display:none;">Click here to cancel reply.</a></div>
+
+			
+		    <form action="http://www.geeksforgeeks.org/wp-comments-post.php" method="post" id="commentform">
+				
+									
+					<div>
+						<label for="author">Name (<em>Required</em>)</label>	
+						<input name="author" id="author" tabindex="1" type="text">			
+				
+						<label for="email">Email (<em>Required</em>)</label> 
+						<input name="email" id="email" tabindex="2" type="text">
+	
+						<label for="url">Website URI</label>
+						<input name="url" id="url" tabindex="3" type="text">
+		<label for="comment"> <b>Your Comment (Writing code? please paste your code between sourcecode tags)</b></label>
+						<textarea id="comment" name="comment" tabindex="4" rows="10" cols="50">
+
+
+[sourcecode language="C"]
+/* Paste your code here (You may delete these lines if not writing code) */
+[/sourcecode]</textarea>
+					</div>
+
+				
+				<div class="clear"></div>
+
+			<!-- BEGIN: subscribe to comments reloaded --><p><label for="subscribe-reloaded"><input style="width:30px" name="subscribe-reloaded" id="subscribe-reloaded" value="yes" checked="checked" type="checkbox"> Notify me of followup comments via e-mail. You can also <a href="http://www.geeksforgeeks.org/comment-subscriptions?srp=19042&amp;sra=s">subscribe</a> without commenting.</label></p><!-- END: subscribe to comments reloaded -->				<div class="submit">
+					<div></div>
+					<div><input name="comment_post_ID" value="19042" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</div>
+				</div>
+
+				<div class="ajax">
+					<div id="postStatus"></div>				
+					<div id="commentStatus"></div>				
+				<!--<div><input type="hidden" name="comment_post_ID" value="" /></div>-->
+				</div>
+
+				<div class="clear"></div>
+				<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="727a836e88" type="hidden"></p>                <script type="text/javascript">
+                    var RecaptchaOptions = { theme : 'red', lang : 'en' , tabindex : 5 };
+                </script><script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/challenge"></script><script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/recaptcha_1-4b27fabf_9cc6f81f_8eda0965_32d566a6_105bdf84.js"></script><div class=" recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio" id="recaptcha_widget_div" style=""></div><script>Recaptcha.widget = Recaptcha.$("recaptcha_widget_div"); Recaptcha.challenge_callback();</script>
+
+	<noscript>
+  		<iframe src="http://www.google.com/recaptcha/api/noscript?k=6Ld-1LoSAAAAANFVCVn56wWBdJTPsADwnMKI6rMi" height="300" width="500" frameborder="0"></iframe><br/>
+  		<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+  		<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+	</noscript>                        <div id="recaptcha-submit-btn-area">&nbsp;<input name="submit" id="submit" tabindex="6" value="Have Your Say" type="submit"></div>
+                        <noscript>
+                         <style type='text/css'>#submit {display:none;}</style>
+                         <input name="submit" type="submit" id="submit-alt" tabindex="6" value="Submit Comment"/> 
+                        </noscript>
+			</form>
+
+		</div> <!-- end form -->
+		
+				    	  </div> <!-- end comments -->			</div>
+	
+					
+			
+			
+
+		</div> <!-- end post -->	
+
+<br><br>
+	
+				
+
+</div> <!-- end content -->
+
+<ul id="sidebar">
+	<li id="text-19" class="widget widget_text">			<div class="textwidget"><div id="cse" style="width: 100%;"><div class="gsc-control-cse gsc-control-cse-en"><div dir="ltr" class="gsc-control-wrapper-cse"><form accept-charset="utf-8" class="gsc-search-box"><table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-input"><input style="outline: medium none; background: url(&quot;http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" spellcheck="false" dir="ltr" id="gsc-i-id1" title="search" name="search" class=" gsc-input" size="10" autocomplete="off" type="text"></td><td class="gsc-search-button"><input title="search" class="gsc-search-button" value="Search" type="button"></td><td class="gsc-clear-button"><div title="clear results" class="gsc-clear-button">&nbsp;</div></td></tr></tbody></table><table class="gsc-branding" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img class="gsc-branding-img" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/small-logo.png"></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div><div class="gsc-tabsAreaInvisible"></div><div class="gsc-above-wrapper-area-invisible"><table class="gsc-above-wrapper-area-container" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table class="gsc-resultsHeader" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div title="show one result" class="gsc-result-selector gsc-one-result">&nbsp;</div><div title="show more results" class="gsc-result-selector gsc-more-results">&nbsp;</div><div title="show all results" class="gsc-result-selector gsc-all-results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+<script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+  google.load('search', '1', {language : 'en', style : google.loader.themes.GREENSKY});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('010463773075615557214:qy5dkn-osd8');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+</script><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/a_002" type="text/javascript"></script><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/defaulten.css" type="text/css" rel="stylesheet"><link href="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/greensky.css" type="text/css" rel="stylesheet"><script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/defaulten.js" type="text/javascript"></script>
+
+<style type="text/css">
+  .gsc-control-cse {
+    font-family: "Trebuchet MS", sans-serif;
+    border-color: #E1F3DA;
+    background-color: #E1F3DA;
+  }
+  input.gsc-input {
+    border-color: #94CC7A;
+  }
+  input.gsc-search-button {
+    border-color: #94CC7A;
+    background-color: #AADA92;
+  }
+  .gsc-tabHeader.gsc-tabhInactive {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gsc-tabHeader.gsc-tabhActive {
+    border-color: #A9DA92;
+    background-color: #A9DA92;
+  }
+  .gsc-tabsArea {
+    border-color: #A9DA92;
+  }
+  .gsc-webResult.gsc-result {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gsc-webResult.gsc-result:hover {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gs-webResult.gs-result a.gs-title:link,
+  .gs-webResult.gs-result a.gs-title:link b {
+    color: #009900;
+  }
+  .gs-webResult.gs-result a.gs-title:visited,
+  .gs-webResult.gs-result a.gs-title:visited b {
+    color: #009900;
+  }
+  .gs-webResult.gs-result a.gs-title:hover,
+  .gs-webResult.gs-result a.gs-title:hover b {
+    color: #003300;
+  }
+  .gs-webResult.gs-result a.gs-title:active,
+  .gs-webResult.gs-result a.gs-title:active b {
+    color: #009900;
+  }
+  .gsc-cursor-page {
+    color: #009900;
+  }
+  a.gsc-trailing-more-results:link {
+    color: #009900;
+  }
+  .gs-webResult.gs-result .gs-snippet {
+    color: #454545;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl {
+    color: #33cc00;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl-short {
+    color: #33cc00;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl-short {
+    display: none;
+  }
+  .gs-webResult.gs-result .gs-visibleUrl-long {
+    display: block;
+  }
+  .gsc-cursor-box {
+    border-color: #A9DA92;
+  }
+  .gsc-results .gsc-cursor-page {
+    border-color: #A9DA92;
+    background-color: #FFFFFF;
+  }
+  .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+    border-color: #A9DA92;
+    background-color: #A9DA92;
+  }
+  .gs-promotion.gs-result {
+    border-color: #94CC7A;
+    background-color: #CBE8B4;
+  }
+  .gs-promotion.gs-result a.gs-title:link {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result a.gs-title:visited {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result a.gs-title:hover {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result a.gs-title:active {
+    color: #0066CC;
+  }
+  .gs-promotion.gs-result .gs-snippet {
+    color: #454545;
+  }
+  .gs-promotion.gs-result .gs-visibleUrl,
+  .gs-promotion.gs-result .gs-visibleUrl-short {
+    color: #815FA7;
+  }
+</style>    
+
+</div>
+		</li>
+<li id="text-13" class="widget widget_text">			<div class="textwidget"><ul>
+<li><a href="http://www.geeksforgeeks.org/tag/interview-experience">Interview Experiences</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/advance-data-structures">Advanced Data Structures</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/dynamic-programming">Dynamic Programming</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/Greedy-Algorithm/">Greedy Algorithms</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/backtracking">Backtracking</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/pattern-searching">Pattern Searching</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/divide-and-conquer">Divide &amp; Conquer</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/graph">Graph</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/MathematicalAlgo">Mathematical Algorithms</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/recursion">Recursion</a></li>
+<li><a href="http://www.geeksforgeeks.org/tag/Java">Java</a></li>
+</ul>
+</div>
+		</li>
+<li id="text-9" class="widget widget_text">			<div class="textwidget"><iframe src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/likebox.htm" style="border:none; overflow:hidden; width:240px; height:200px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe></div>
+		</li>
+<li id="text-18" class="widget widget_text">			<div class="textwidget"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-9465609616171866";
+/* Mediam Rectange */
+google_ad_slot = "7922198189";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins></div>
+		</li>
+<li id="text-14" class="widget widget_text"><h2 class="widgettitle">Popular Posts</h2>
+			<div class="textwidget"><ul>
+<li><a href="http://www.geeksforgeeks.org/archives/767">  All permutations of a given string </a></li>
+<li><a href="http://www.geeksforgeeks.org/archives/14268"> Memory Layout of C Programs</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/840"> Understanding “extern” keyword in C</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/2105">Median of two sorted arrays</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/6358"> Tree traversal without recursion and without stack! </a></li>
+<li><a href="http://www.geeksforgeeks.org/archives/9705"> Structure Member Alignment, Padding and Data Packing</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/2405"> Intersection point of two Linked Lists</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/1029"> Lowest Common Ancestor in a BST.</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/3042"> Check if a binary tree is BST or not</a> </li>
+<li><a href="http://www.geeksforgeeks.org/archives/17063"> Sorted Linked List to Balanced BST</a></li>
+</ul></div>
+		</li>
+<li id="text-17" class="widget widget_text">			<div class="textwidget"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-9465609616171866";
+/* Wide Skyscrapper Sidebar */
+google_ad_slot = "8695472116";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="600" scrolling="no" width="160"></iframe></ins></ins></div>
+		</li>
+<li id="text-3" class="widget widget_text">			<div class="textwidget"><!-- TWITTER BUTTON-->
+<iframe data-twttr-rendered="true" title="Twitter Follow Button" style="width: 253px; height: 20px;" class="twitter-follow-button twitter-follow-button" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/follow_button.htm" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+<script src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/widgets.js" type="text/javascript"></script>
+
+         <!-- Place this tag in your head or just before your close body tag -->
+         <script gapi_processed="true" type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/plusone.js"></script>
+         <!-- Place this tag where you want the +1 button to render -->
+         <div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 106px; height: 24px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/fastbutton_002.htm" name="I0_1370542525197" id="I0_1370542525197" vspace="0" tabindex="0" style="position: static; top: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+
+<!-- GOOGLE FEEDBURNER BUTTON-->
+<a href="http://feeds.feedburner.com/Geeksforgeeks" title="Subscribe to my feed" rel="alternate" type="application/rss+xml"><img src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/feed-icon32x32.png" alt="" style="border:0"></a><a href="http://feeds.feedburner.com/Geeksforgeeks" title="Subscribe to my feed" rel="alternate" type="application/rss+xml">Subscribe</a>
+
+</div>
+		</li>
+<li id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widgettitle">Recent Comments</h2>
+<ul id="recentcomments"><li class="recentcomments">Balasubramanian on <a href="http://www.geeksforgeeks.org/expression-evaluation/#comment-18978">Expression Evaluation</a></li><li class="recentcomments">iceman_w on <a href="http://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/#comment-18977">Given an array of of size n and a number k, finds all elements that appear more than n/k times</a></li><li class="recentcomments">alexchao on <a href="http://www.geeksforgeeks.org/sort-elements-by-frequency-set-2/#comment-18976">Sort elements by frequency | Set 2</a></li><li class="recentcomments">Nikhil Agrawal on <a href="http://www.geeksforgeeks.org/write-a-c-program-to-get-count-of-leaf-nodes-in-a-binary-tree/#comment-18973">Program to count leaf nodes in a binary tree</a></li><li class="recentcomments">Nikhil Agrawal on <a href="http://www.geeksforgeeks.org/write-a-c-program-to-get-count-of-leaf-nodes-in-a-binary-tree/#comment-18972">Program to count leaf nodes in a binary tree</a></li><li class="recentcomments">Nikhil Agrawal on <a href="http://www.geeksforgeeks.org/write-a-c-program-to-get-count-of-leaf-nodes-in-a-binary-tree/#comment-18970">Program to count leaf nodes in a binary tree</a></li><li class="recentcomments">Niks on <a href="http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/#comment-18969">Dynamic Programming | Set 10 ( 0-1 Knapsack Problem)</a></li><li class="recentcomments">Niks on <a href="http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/#comment-18967">Dynamic Programming | Set 10 ( 0-1 Knapsack Problem)</a></li></ul></li>
+
+</ul>	
+				  
+		<div class="clear"></div>
+
+		<div id="footer">
+		
+		    <div class="xhtml">
+                        @geeksforgeeks, <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/in/deed.en_US" title="Valid XHTML Strict 1.0">Some rights reserved</a>  <a href="http://www.geeksforgeeks.org/about/contact-us/"> &nbsp; &nbsp; &nbsp; &nbsp;Contact Us</a>
+
+		    </div>
+		    
+		    <div class="credits">
+			  Powered by <a href="http://wordpress.org/">WordPress </a> &amp; <a href="http://mootools.net/" title="Mootools JavaScript Framework">MooTools</a>, customized by geeksforgeeks team </div>
+			  
+		   <div class="clear"></div>						                            
+		   
+		</div> <!--end footer-->  
+        
+		<!--[if !lte IE 8]><!--> 
+<!--<![endif]--> 
+                <script type="text/javascript">
+                var sub = document.getElementById('submit');
+                document.getElementById('recaptcha-submit-btn-area').appendChild (sub);
+                document.getElementById('submit').tabIndex = 6;
+                if ( typeof _recaptcha_wordpress_savedcomment != 'undefined') {
+                        document.getElementById('comment').value = _recaptcha_wordpress_savedcomment;
+                }
+                document.getElementById('recaptcha_table').style.direction = 'ltr';
+                </script><script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shCore.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/shBrushCpp.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.geeksforgeeks.org/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/social.js"></script>
+<script type="text/javascript" src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/in.js"></script>
+<!-- Facebook Comments for WordPress: http://3doordigital.com/wordpress/plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=308017392649785";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+				  
+		</div> <!--end wrapper-->
+        
+        <div id="ajaxSpinner"></div> <!--For AJAX spinner holder-->
+	
+
+
+
+
+<div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/xd_arbiter.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0" scrolling="no"></iframe><iframe src="Backtracking%20_%20Set%205%20%28m%20Coloring%20Problem%29%20-%20GeeksforGeeks%20_%20GeeksforGeeks_files/xd_arbiter_002.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0" scrolling="no"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><table class="gstl_0 gssb_c" style="width: 215px; display: none; top: 171px; left: 702px; position: absolute;" cellpadding="0" cellspacing="0"><tbody><tr><td class="gssb_f"></td><td style="width: 100%;" class="gssb_e"></td></tr></tbody></table></body></html>
+<!-- Dynamic page generated in 0.346 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2013-05-31 22:28:03 -->
+<!-- super cache -->
